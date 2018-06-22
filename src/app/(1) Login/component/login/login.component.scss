@@ -1,0 +1,72 @@
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+.example-full-width {
+  width: 100%;
+}
+// body of this
+.body_ {
+  background: rgba(0, 0, 0, 0.25);
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.centerBlock {
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 1rem;
+}
+.innerContainer {
+  @extend .centerBlock;
+
+  max-width   : 80%;
+  min-height  : 14rem;
+  min-width   : 20rem;
+
+  .loader {
+    background  : white;
+    width       : 25rem;
+    padding-top : 3rem;
+
+    .loaderBlock {
+      margin: auto;
+    }
+  }
+
+  .signInButtonBlock button {
+    width: 100%;
+  }
+
+  .error_ {
+    text-align: center;
+    color: red;
+    font-size: 0.8rem;
+  }
+}
+
+.signInButtonBlock {
+  text-align: right;
+
+  .signIn {
+
+  }
+
+}
+
+.footerText {
+  font-size: 0.8rem;
+  text-align: center;
+  position: absolute;
+  font-style: italic;
+  bottom: 0.25rem;
+
+  & > span {
+    color: gray;
+  }
+}

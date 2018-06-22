@@ -1,0 +1,612 @@
+<div class="container-fluid h-100">
+
+  <div class="header">
+    <div class="container">
+      <div class="row">
+        <div class="col-1 col-md-4 leftSide">
+          <!---->
+          <div class="menuButton hidden-md-up">
+            <i class="fas fa-bars showHeaderMenuButton"></i>
+            <i class="far fa-times-circle closeHeaderMenuButton"></i>
+          </div>
+          <div class="logoText hidden-sm-down">
+            Wideformat24
+          </div>
+        </div>
+        <div class="col-11 col-md-8 rightSide">
+
+            <div class="row div">
+              <div class="searchBlock col-12 col-md-6">
+                <i class="fas fa-search searchButton"></i>
+                <input type="text" placeholder="Быстрый поиск">
+              </div>
+            </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="container h-100">
+    <div class="row body h-100">
+      <!--desktop hide in mobile -->
+      <div class="leftBlock desktop col-md-4 h-100 hidden-sm-down">
+        <ul class="categories">
+          <li class="incomeMenu"><i class="fas fa-inbox icon"></i> <span>Входящие</span></li>
+          <li><i class="far fa-question-circle icon"></i> <span>Сегодня</span></li>
+          <li><i class="far fa-question-circle icon"></i> <span>Следующие 7 дней</span></li>
+        </ul>
+
+        <div class="projects">
+          <mat-tab-group selectedIndex="0">
+            <mat-tab label="Проекты">
+              <ul class="projectsMenus">
+                <li class="prjectItem">
+                  <i class="fas fa-expand-arrows-alt hoverMovingIcon"></i>
+                  <i class="fas fa-circle cicleIcon"  [ngStyle]="{color: '#a8c8e4'}"></i>
+                  <span class="text">Доставка</span>
+                  <span class="countAll">2</span>
+                  <i class="fas fa-ellipsis-h menuIcon"></i>
+                </li>
+                <li class="prjectItem">
+                  <i class="fas fa-expand-arrows-alt hoverMovingIcon"></i>
+                  <i class="fas fa-circle cicleIcon"  [ngStyle]="{color: '#a8c8e4'}"></i>
+                  <span class="text">Блок печати</span>
+                  <span class="countAll">21</span>
+                  <i class="fas fa-ellipsis-h menuIcon"></i>
+                </li>
+                  <!--Под задача-->
+                  <li class="prjectItem subLevel1">
+                    <i class="fas fa-expand-arrows-alt hoverMovingIcon"></i>
+                    <i class="fas fa-circle cicleIcon"  [ngStyle]="{color: '#f9ec75'}"></i>
+                    <span class="text">Постпечать</span>
+                    <span class="countAll">13</span>
+                    <i class="fas fa-ellipsis-h menuIcon"></i>
+                  </li>
+                  <!--Под задача-->
+                  <li class="prjectItem subLevel1">
+                    <i class="fas fa-expand-arrows-alt hoverMovingIcon"></i>
+                    <i class="fas fa-circle cicleIcon"  [ngStyle]="{color: '#95ef62'}"></i>
+                    <span class="text">Печать</span>
+                    <span class="countAll">8</span>
+                    <i class="fas fa-ellipsis-h menuIcon"></i>
+                  </li>
+                <li class="prjectItem">
+                  <i class="fas fa-expand-arrows-alt hoverMovingIcon"></i>
+                  <i class="fas fa-circle cicleIcon"  [ngStyle]="{color: '#cccccc'}"></i>
+                  <span class="text">Фризировка</span>
+                  <span class="countAll">3</span>
+                  <i class="fas fa-ellipsis-h menuIcon"></i>
+                </li>
+                <li class="prjectItem">
+                  <i class="fas fa-expand-arrows-alt hoverMovingIcon"></i>
+                  <i class="fas fa-circle cicleIcon" [ngStyle]="{color: '#fb876d'}"></i>
+                  <span class="text">Бланк №1</span>
+                  <span class="countAll">23</span>
+                  <i class="fas fa-ellipsis-h menuIcon"></i>
+                </li>
+                  <!--Под задача-->
+                  <li class="prjectItem subLevel1">
+                    <i class="fas fa-expand-arrows-alt hoverMovingIcon"></i>
+                    <i class="fas fa-circle cicleIcon"  [ngStyle]="{color: '#f9ec75'}"></i>
+                    <span class="text">Постпечать</span>
+                    <span class="countAll">13</span>
+                    <i class="fas fa-ellipsis-h menuIcon"></i>
+                  </li>
+                  <!--Под задача-->
+                  <li class="prjectItem subLevel1">
+                    <i class="fas fa-expand-arrows-alt hoverMovingIcon"></i>
+                    <i class="fas fa-circle cicleIcon"  [ngStyle]="{color: '#95ef62'}"></i>
+                    <span class="text">Печать</span>
+                    <span class="countAll">8</span>
+                    <i class="fas fa-ellipsis-h menuIcon"></i>
+                  </li>
+                  <!--Под задача-->
+                  <li class="prjectItem subLevel1">
+                    <i class="fas fa-expand-arrows-alt hoverMovingIcon"></i>
+                    <i class="fas fa-circle cicleIcon"  [ngStyle]="{color: '#a8c8e4'}"></i>
+                    <span class="text">Доставка</span>
+                    <span class="countAll">2</span>
+                    <i class="fas fa-ellipsis-h menuIcon"></i>
+                  </li>
+              </ul>
+            </mat-tab>
+            <mat-tab label="Сотрудники">
+
+              <ul class="projectsMenus">
+                <li class="prjectItem">
+                  <i class="fas fa-expand-arrows-alt hoverMovingIcon"></i>
+                  <i class="fas fa-users"  [ngStyle]="{color: '#00aaff'}"></i>
+                  <span class="text">Все пользователи</span>
+                  <span class="countAll">20</span>
+                  <span class="countLate">10</span>
+                  <i class="fas fa-ellipsis-h menuIcon"></i>
+                </li>
+                <li class="prjectItem subLevel1">
+                  <i class="fas fa-expand-arrows-alt hoverMovingIcon"></i>
+                  <i class="fas fa-user-circle"  [ngStyle]="{color: '#fb856c'}"></i>
+                  <span class="text">Ростислав Сорокин</span>
+                  <span class="countAll">2</span>
+                  <span class="countLate">1</span>
+                  <i class="fas fa-ellipsis-h menuIcon"></i>
+                </li>
+                <li class="prjectItem subLevel1">
+                  <i class="fas fa-expand-arrows-alt hoverMovingIcon"></i>
+                  <i class="fas fa-user-circle"  [ngStyle]="{color: '#fb856c'}"></i>
+                  <span class="text">Филипп Белоусов</span>
+                  <span class="countAll">4</span>
+                  <span class="countLate">2</span>
+                  <i class="fas fa-ellipsis-h menuIcon"></i>
+                </li>
+                  <!--Под задача-->
+                  <li class="prjectItem subLevel1 ">
+                    <i class="fas fa-expand-arrows-alt hoverMovingIcon"></i>
+                    <i class="fas fa-user-circle"  [ngStyle]="{color: '#fb856c'}"></i>
+                    <span class="text">Георгий Фокин</span>
+                    <span class="countAll">3</span>
+                    <span class="countLate">1</span>
+                    <i class="fas fa-ellipsis-h menuIcon"></i>
+                  </li>
+                  <!--Под задача-->
+                  <li class="prjectItem subLevel1 ">
+                    <i class="fas fa-expand-arrows-alt hoverMovingIcon"></i>
+                    <i class="fas fa-user-circle"  [ngStyle]="{color: '#fb856c'}"></i>
+                    <span class="text">Пётр Журавлёв</span>
+                    <span class="countAll">1</span>
+                    <span class="countLate">0</span>
+                    <i class="fas fa-ellipsis-h menuIcon"></i>
+                  </li>
+                <li class="prjectItem subLevel1">
+                  <i class="fas fa-expand-arrows-alt hoverMovingIcon"></i>
+                  <i class="fas fa-user-circle"  [ngStyle]="{color: '#fb856c'}"></i>
+                  <span class="text">Тимофей Зуев</span>
+                  <span class="countAll">2</span>
+                  <span class="countLate">1</span>
+                  <i class="fas fa-ellipsis-h menuIcon"></i>
+                </li>
+                <li class="prjectItem subLevel1">
+                  <i class="fas fa-expand-arrows-alt hoverMovingIcon"></i>
+                  <i class="fas fa-user-circle" [ngStyle]="{color: '#fb856c'}"></i>
+                  <span class="text">Василий Ларионов</span>
+                  <span class="countAll">8</span>
+                  <span class="countLate">6</span>
+                  <i class="fas fa-ellipsis-h menuIcon"></i>
+                </li>
+
+
+
+                <li class="prjectItem">
+                  <i class="fas fa-expand-arrows-alt hoverMovingIcon"></i>
+                  <i class="fas fa-users"  [ngStyle]="{color: '#00aaff'}"></i>
+                  <span class="text">Группы</span>
+                  <span class="countAll">2</span>
+                  <i class="fas fa-ellipsis-h menuIcon"></i>
+                </li>
+
+                <li class="prjectItem subLevel1">
+                  <i class="fas fa-expand-arrows-alt hoverMovingIcon"></i>
+                  <i class="fas fa-circle cicleIcon"  [ngStyle]="{color: '#f9ec75'}"></i>
+                  <span class="text">Постпечать</span>
+                  <span class="countAll">2</span>
+                  <span class="countLate">12</span>
+                  <i class="fas fa-ellipsis-h menuIcon"></i>
+                </li>
+
+                  <li class="prjectItem subLevel2">
+                    <i class="fas fa-expand-arrows-alt hoverMovingIcon"></i>
+                    <i class="fas fa-user-circle"  [ngStyle]="{color: '#fb856c'}"></i>
+                    <span class="text">Ростислав Сорокин</span>
+                    <span class="countAll">1</span>
+                    <span class="countLate">12</span>
+                    <i class="fas fa-ellipsis-h menuIcon"></i>
+                  </li>
+
+                  <li class="prjectItem subLevel2">
+                    <i class="fas fa-expand-arrows-alt hoverMovingIcon"></i>
+                    <i class="fas fa-user-circle"  [ngStyle]="{color: '#fb856c'}"></i>
+                    <span class="text">Филипп Белоусов</span>
+                    <span class="countAll">1</span>
+                    <span class="countLate">12</span>
+                    <i class="fas fa-ellipsis-h menuIcon"></i>
+                  </li>
+
+                <li class="prjectItem subLevel1">
+                  <i class="fas fa-expand-arrows-alt hoverMovingIcon"></i>
+                  <i class="fas fa-circle cicleIcon"  [ngStyle]="{color: '#a8c8e4'}"></i>
+                  <span class="text">Доставка</span>
+                  <span class="countAll">11</span>
+                  <span class="countLate">7</span>
+                  <i class="fas fa-ellipsis-h menuIcon"></i>
+                </li>
+
+                  <li class="prjectItem subLevel2 ">
+                    <i class="fas fa-expand-arrows-alt hoverMovingIcon"></i>
+                    <i class="fas fa-user-circle"  [ngStyle]="{color: '#fb856c'}"></i>
+                    <span class="text">Пётр Журавлёв</span>
+                    <span class="countAll">1</span>
+                    <span class="countLate">0</span>
+                    <i class="fas fa-ellipsis-h menuIcon"></i>
+                  </li>
+                  <li class="prjectItem subLevel2">
+                    <i class="fas fa-expand-arrows-alt hoverMovingIcon"></i>
+                    <i class="fas fa-user-circle"  [ngStyle]="{color: '#fb856c'}"></i>
+                    <span class="text">Тимофей Зуев</span>
+                    <span class="countAll">2</span>
+                    <span class="countLate">1</span>
+                    <i class="fas fa-ellipsis-h menuIcon"></i>
+                  </li>
+                  <li class="prjectItem subLevel2">
+                    <i class="fas fa-expand-arrows-alt hoverMovingIcon"></i>
+                    <i class="fas fa-user-circle" [ngStyle]="{color: '#fb856c'}"></i>
+                    <span class="text">Василий Ларионов</span>
+                    <span class="countAll">8</span>
+                    <span class="countLate">6</span>
+                    <i class="fas fa-ellipsis-h menuIcon"></i>
+                  </li>
+
+              </ul>
+            </mat-tab>
+
+
+            <mat-tab label="Контакты">
+              <ul class="projectsMenus">
+                <li class="prjectItem">
+                  <i class="fas fa-expand-arrows-alt hoverMovingIcon"></i>
+                  <i class="fas fa-address-card"  [ngStyle]="{color: '#fb856c'}"></i>
+                  <span class="text">Ростислав Сорокин</span>
+                  <span class="countAll">2</span>
+                  <span class="countLate">1</span>
+                  <i class="fas fa-ellipsis-h menuIcon"></i>
+                </li>
+                <li class="prjectItem">
+                  <i class="fas fa-expand-arrows-alt hoverMovingIcon"></i>
+                  <i class="fas fa-address-card"  [ngStyle]="{color: '#fb856c'}"></i>
+                  <span class="text">Филипп Белоусов</span>
+                  <span class="countAll">4</span>
+                  <span class="countLate">2</span>
+                  <i class="fas fa-ellipsis-h menuIcon"></i>
+                </li>
+                <!--Под задача-->
+                <li class="prjectItem ">
+                  <i class="fas fa-expand-arrows-alt hoverMovingIcon"></i>
+                  <i class="fas fa-address-card"  [ngStyle]="{color: '#fb856c'}"></i>
+                  <span class="text">Георгий Фокин</span>
+                  <span class="countAll">3</span>
+                  <span class="countLate">1</span>
+                  <i class="fas fa-ellipsis-h menuIcon"></i>
+                </li>
+                <!--Под задача-->
+                <li class="prjectItem ">
+                  <i class="fas fa-expand-arrows-alt hoverMovingIcon"></i>
+                  <i class="fas fa-address-card"  [ngStyle]="{color: '#fb856c'}"></i>
+                  <span class="text">Пётр Журавлёв</span>
+                  <span class="countAll">1</span>
+                  <span class="countLate">0</span>
+                  <i class="fas fa-ellipsis-h menuIcon"></i>
+                </li>
+                <li class="prjectItem">
+                  <i class="fas fa-expand-arrows-alt hoverMovingIcon"></i>
+                  <i class="fas fa-address-card"  [ngStyle]="{color: '#fb856c'}"></i>
+                  <span class="text">Тимофей Зуев</span>
+                  <span class="countAll">2</span>
+                  <span class="countLate">1</span>
+                  <i class="fas fa-ellipsis-h menuIcon"></i>
+                </li>
+                <li class="prjectItem">
+                  <i class="fas fa-expand-arrows-alt hoverMovingIcon"></i>
+                  <i class="fas fa-address-card" [ngStyle]="{color: '#fb856c'}"></i>
+                  <span class="text">Василий Ларионов</span>
+                  <span class="countAll">8</span>
+                  <span class="countLate">6</span>
+                  <i class="fas fa-ellipsis-h menuIcon"></i>
+                </li>
+
+                <li class="prjectItem">
+                  <i class="fas fa-expand-arrows-alt hoverMovingIcon"></i>
+                  <i class="fas fa-address-card" [ngStyle]="{color: '#fb856c'}"></i>
+                  <span class="text">Георгий Родионов</span>
+                  <span class="countAll"></span>
+                  <span class="countLate"></span>
+                  <i class="fas fa-ellipsis-h menuIcon"></i>
+                </li>
+                <li class="prjectItem">
+                  <i class="fas fa-expand-arrows-alt hoverMovingIcon"></i>
+                  <i class="fas fa-address-card" [ngStyle]="{color: '#fb856c'}"></i>
+                  <span class="text">Анфиса Русакова</span>
+                  <span class="countAll"></span>
+                  <span class="countLate"></span>
+                  <i class="fas fa-ellipsis-h menuIcon"></i>
+                </li>
+                <li class="prjectItem">
+                  <i class="fas fa-expand-arrows-alt hoverMovingIcon"></i>
+                  <i class="fas fa-address-card" [ngStyle]="{color: '#fb856c'}"></i>
+                  <span class="text">Инна Моисеева</span>
+                  <span class="countAll"></span>
+                  <span class="countLate"></span>
+                  <i class="fas fa-ellipsis-h menuIcon"></i>
+                </li>
+                <li class="prjectItem">
+                  <i class="fas fa-expand-arrows-alt hoverMovingIcon"></i>
+                  <i class="fas fa-address-card" [ngStyle]="{color: '#fb856c'}"></i>
+                  <span class="text">Элеонора Дьячкова</span>
+                  <span class="countAll"></span>
+                  <span class="countLate"></span>
+                  <i class="fas fa-ellipsis-h menuIcon"></i>
+                </li>
+                <li class="prjectItem">
+                  <i class="fas fa-expand-arrows-alt hoverMovingIcon"></i>
+                  <i class="fas fa-address-card" [ngStyle]="{color: '#fb856c'}"></i>
+                  <span class="text">Агния Цветкова</span>
+                  <span class="countAll"></span>
+                  <span class="countLate"></span>
+                  <i class="fas fa-ellipsis-h menuIcon"></i>
+                </li>
+                <li class="prjectItem">
+                  <i class="fas fa-expand-arrows-alt hoverMovingIcon"></i>
+                  <i class="fas fa-address-card" [ngStyle]="{color: '#fb856c'}"></i>
+                  <span class="text">София Данилова</span>
+                  <span class="countAll"></span>
+                  <span class="countLate"></span>
+                  <i class="fas fa-ellipsis-h menuIcon"></i>
+                </li>
+              </ul>
+            </mat-tab>
+
+
+            <mat-tab label="Фильтры">
+              <ul class="projectsMenus">
+              </ul>
+            </mat-tab>
+          </mat-tab-group>
+        </div>
+
+      </div> <!--hidden-md-up | hidden-sm-down-->
+
+      <div class="rightBlock col-md-8 h-100">
+
+
+
+        <div class="header_">
+          <span class="title_">Просрочено</span>
+          <div class="rightSide_">
+            <i class="fas fa-cogs item options"></i>
+          </div>
+        </div>
+        <div class="body_">
+          <ul class="taskItems">
+            <li class="taskItem">
+              <div class="before_">
+                <!--<i class="fab fa-wpforms formItem"></i>-->
+                <i class="fas fa-angle-down closeSubTask"></i>
+              </div>
+              <span class="title_">Заказ №101 для Raven</span>
+              <div class="after_">
+                <span class="planTime">9 марта</span>
+                <span class="projectName">Бланк №1</span>
+                <i class="fas fa-circle cicleIcon"  [ngStyle]="{color: '#fb876d'}"></i>
+              </div>
+              <div class="horisontalLine_"></div>
+              <div class="progress_"  [ngStyle]="{width : '90%'}"></div>
+            </li>
+            <li class="taskItem subLevel1 completedTask">
+              <div class="before_">
+                <i class="fab fa-wpforms formItem"></i>
+              </div>
+              <span class="title_ completedTask">Напечатать</span>
+              <div class="after_">
+                <span class="planTime completedTask">8 марта</span>
+                <span class="projectName completedTask">Постпечать</span>
+                <i class="fas fa-circle cicleIcon"  [ngStyle]="{color: '#95ef62'}"></i>
+                <i class="far fa-user peopleCount"></i>
+              </div>
+              <div class="horisontalLine_"></div>
+              <div class="progress_"  [ngStyle]="{width : '100%'}"></div>
+            </li>
+            <li class="taskItem subLevel1">
+              <div class="before_">
+                <i class="fab fa-wpforms formItem"></i>
+              </div>
+              <span class="title_">Собрать</span>
+              <div class="after_">
+                <span class="planTime">9 марта</span>
+                <span class="projectName">Постпечать</span>
+                <i class="fas fa-circle cicleIcon"  [ngStyle]="{color: '#f9ec75'}"></i>
+              </div>
+              <div class="horisontalLine_"></div>
+              <div class="progress_"  [ngStyle]="{width : '80%'}">
+                <div class="success_" [ngStyle]="{width : '60%'}">
+                  <span class="startTime_">
+                    <span class="text_">06.03.18</span>
+                  </span>
+                  <span class="text_">3 дня</span>
+                  <span class="endTime_">
+                    <span class="text_">09.03.18</span>
+                  </span>
+                </div>
+                <div class="error_" [ngStyle]="{width : '40%'}">
+                  <span class="startTime_">
+                    <span class="text_">10.03.18</span>
+                  </span>
+                  <span class="text_">2 дня</span>
+                  <span class="endTime_">
+                    <span class="text_">12.03.18</span>
+                  </span>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+
+        <div class="header_">
+          <span class="title_">Сегодня</span>
+          <div class="rightSide_">
+            <i class="fas fa-cogs item options"></i>
+          </div>
+        </div>
+        <div class="body_">
+          <ul class="taskItems">
+            <li class="taskItem">
+              <div class="before_">
+                <!--<i class="fab fa-wpforms formItem"></i>-->
+                <i class="fas fa-angle-down closeSubTask"></i>
+              </div>
+              <span class="title_">Заказ №103 для Шоколадницы</span>
+              <div class="after_">
+                <span class="planTime">14 марта</span>
+                <span class="projectName">Бланк №1</span>
+                <i class="fas fa-circle cicleIcon"  [ngStyle]="{color: '#fb876d'}"></i>
+              </div>
+              <div class="horisontalLine_"></div>
+              <div class="progress_"  [ngStyle]="{width : '45%'}"></div>
+            </li>
+            <li class="taskItem subLevel1 completedTask">
+              <div class="before_">
+                <i class="fab fa-wpforms formItem"></i>
+              </div>
+              <span class="title_ completedTask">Напечатать баннер</span>
+              <div class="after_">
+                <span class="planTime completedTask">12 марта</span>
+                <span class="projectName completedTask">Постпечать</span>
+                <i class="fas fa-circle cicleIcon"  [ngStyle]="{color: '#95ef62'}"></i>
+                <i class="far fa-user peopleCount"></i>
+              </div>
+              <div class="horisontalLine_"></div>
+            </li>
+            <li class="taskItem subLevel1">
+              <div class="progress_"  [ngStyle]="{width : '35%'}"></div>
+              <div class="before_">
+                <i class="fab fa-wpforms formItem"></i>
+              </div>
+              <span class="title_">Обрезать края</span>
+              <div class="after_">
+                <span class="planTime">12 марта</span>
+                <span class="projectName">Постпечать</span>
+                <i class="fas fa-circle cicleIcon"  [ngStyle]="{color: '#f9ec75'}"></i>
+              </div>
+              <div class="horisontalLine_"></div>
+              <div class="progress_"  [ngStyle]="{width : '35%'}"></div>
+            </li>
+            <li class="taskItem subLevel1">
+              <!--<div class="progress_"></div>-->
+              <div class="before_">
+                <!--<mat-checkbox></mat-checkbox>-->
+                <i class="fab fa-wpforms formItem"></i>
+              </div>
+              <span class="title_">Доставить документы</span>
+              <div class="after_">
+                <span class="planTime">14 марта</span>
+                <span class="projectName">Доставка</span>
+                <i class="fas fa-circle cicleIcon"  [ngStyle]="{color: '#a8c8e4'}"></i>
+              </div>
+              <div class="horisontalLine_"></div>
+            </li>
+
+            <li class="taskItem">
+              <div class="before_">
+                <!--<i class="fab fa-wpforms formItem"></i>-->
+                <i class="fas fa-angle-down closeSubTask"></i>
+              </div>
+              <span class="title_">Заказ №104 для Мегафон</span>
+              <div class="after_">
+                <span class="planTime">16 марта</span>
+                <span class="projectName">Бланк №1</span>
+                <i class="fas fa-circle cicleIcon"  [ngStyle]="{color: '#fb876d'}"></i>
+              </div>
+              <div class="horisontalLine_"></div>
+              <div class="progress_"  [ngStyle]="{width : '76%'}"></div>
+            </li>
+            <li class="taskItem subLevel1 completedTask">
+              <div class="before_">
+                <i class="fab fa-wpforms formItem"></i>
+              </div>
+              <span class="title_ completedTask">Распечатка файлов</span>
+              <div class="after_">
+                <span class="planTime completedTask">11 марта</span>
+                <span class="projectName completedTask">Постпечать</span>
+                <i class="fas fa-circle cicleIcon"  [ngStyle]="{color: '#95ef62'}"></i>
+                <i class="far fa-user peopleCount"></i>
+              </div>
+              <div class="horisontalLine_"></div>
+              <div class="progress_"  [ngStyle]="{width : '100%'}"></div>
+            </li>
+            <li class="taskItem subLevel1">
+              <div class="before_">
+                <i class="fab fa-wpforms formItem"></i>
+              </div>
+              <span class="title_ completedTask">Постпечатная обработка</span>
+              <div class="after_">
+                <span class="planTime completedTask">13 марта</span>
+                <span class="projectName completedTask">Постпечать</span>
+                <i class="fas fa-circle cicleIcon"  [ngStyle]="{color: '#f9ec75'}"></i>
+              </div>
+              <div class="horisontalLine_"></div>
+              <div class="progress_"  [ngStyle]="{width : '100%'}"></div>
+            </li>
+            <li class="taskItem subLevel1">
+              <div class="before_">
+                <!--<mat-checkbox></mat-checkbox>-->
+                <i class="fab fa-wpforms formItem"></i>
+              </div>
+              <span class="title_">Доставить материалы</span>
+              <div class="after_">
+                <span class="planTime">16 марта</span>
+                <span class="projectName">Доставка</span>
+                <i class="fas fa-circle cicleIcon"  [ngStyle]="{color: '#a8c8e4'}"></i>
+              </div>
+              <div class="horisontalLine_"></div>
+              <div class="progress_"  [ngStyle]="{width : '28%'}"></div>
+            </li>
+
+
+            <li class="taskItem">
+              <!--<div class="progress_"></div>-->
+              <div class="before_">
+                <mat-checkbox></mat-checkbox>
+                <!--<i class="fab fa-wpforms formItem"></i>-->
+              </div>
+              <span class="title_">Самая простая задача</span>
+              <div class="after_">
+                <span class="planTime late0to1day">Вчера</span>
+                <span class="projectName">Доставка</span>
+                <i class="fas fa-circle cicleIcon"  [ngStyle]="{color: '#a8c8e4'}"></i>
+              </div>
+              <div class="horisontalLine_"></div>
+            </li>
+            <li class="taskItem">
+              <div class="before_">
+                <i class="fab fa-wpforms formItem"></i>
+              </div>
+              <span class="title_">Постепачатная операция для Евросети</span>
+              <div class="after_">
+                <span class="planTime">Сегодня</span>
+                <span class="projectName">Постпечать</span>
+                <i class="fas fa-circle cicleIcon"  [ngStyle]="{color: '#f9ec75'}"></i>
+              </div>
+              <div class="horisontalLine_"></div>
+              <div class="progress_"  [ngStyle]="{width : '15%'}"></div>
+            </li>
+            <li class="taskItem">
+              <!--<div class="progress_"></div>-->
+              <div class="before_">
+                <i class="fab fa-wpforms formItem"></i>
+              </div>
+              <span class="title_">Фризировка материала</span>
+              <div class="after_">
+                <span class="planTime">12 марта</span>
+                <span class="projectName">Фризировка</span>
+                <i class="fas fa-circle cicleIcon"  [ngStyle]="{color: '#95ef62'}"></i>
+              </div>
+              <div class="horisontalLine_"></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!--mobile-->
+
+    </div>
+  </div>
+
+
+</div>

@@ -1,0 +1,228 @@
+<ng-template	#fullRowTemplate let-freeform='freeform' let-fields="freeform.fields" let-fieldid="fieldid" let-objid="objid" >
+
+
+  <!--helpers-->
+
+  <!--fields[fieldid]?.objects[objid]?.body?.status?.focus === true &&-->
+  <ng-container *ngIf="fields[fieldid]?.objects[objid]?.body?.helper">
+    <div class="helper_"
+         [matTooltip]="fields[fieldid]?.objects[objid]?.body?.helper?.text"
+         *ngIf="
+                fields[fieldid]?.objects[objid]?.body?.helper?.text
+        ">
+      <div class="leftBlock_">
+        <div class="icon_" >
+          <i class="fas fa-question-circle"></i>
+        </div>
+      </div>
+      <!--<div class="body_ col-11">{{fields[fieldid]?.objects[objid]?.body?.helper?.text}}</div>-->
+    </div>
+
+    <div class="success_ alert alert-success fade in alert-dismissible row"
+         *ngIf="
+               fields[fieldid]?.objects[objid]?.body?.helper?.success &&
+               fields[fieldid]?.objects[objid]?.body?.status?.value === true
+             ">
+
+      <div class="leftBlock_ ol-1">
+        <div class="icon_">
+          <i class="fas fa-check-circle"></i>
+        </div>
+      </div>
+      <div class="body_ ol-11">{{fields[fieldid]?.objects[objid]?.body?.helper?.success}}</div>
+    </div>
+
+  </ng-container>
+
+  <ng-container
+    [ngSwitch]="fields[fieldid]?.objects[objid]?.body?.type"
+  >
+    <ng-container *ngSwitchCase="'text'">
+      <!--<p>TEXT</p>-->
+      <wf24-freeform-field-text
+        [ngClass]="{
+          'withHelper' : fields[fieldid]?.objects[objid]?.body?.helper?.text
+        }"
+        [disabled]="disabled"
+        [fieldid]="fieldid"
+        [objid]="objid"
+        [freeform]="freeform"
+        type="text"
+      ></wf24-freeform-field-text>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'number'">
+      <!--<p>NUMBER</p>-->
+      <wf24-freeform-field-text
+        [ngClass]="{
+          'withHelper' : fields[fieldid]?.objects[objid]?.body?.helper?.text
+        }"
+        [disabled]="disabled"
+        [fieldid]="fieldid"
+        [objid]="objid"
+        [freeform]="freeform"
+        type="number"
+      ></wf24-freeform-field-text>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'date'">
+      <!--<p>DATE</p> date-->
+      <wf24-freeform-field-date
+        [ngClass]="{
+          'withHelper' : fields[fieldid]?.objects[objid]?.body?.helper?.text
+        }"
+        [disabled]="disabled"
+        [fieldid]="fieldid"
+        [objid]="objid"
+        [freeform]="freeform"
+      ></wf24-freeform-field-date>
+    </ng-container>
+
+
+    <ng-container *ngSwitchCase="'textredactor'">
+      <!--<p>TEXTREDACTORE</p> textredactor -->
+      <wf24-freeform-field-textredactor
+        [ngClass]="{
+            'withHelper' : fields[fieldid]?.objects[objid]?.body?.helper?.text
+          }"
+        [disabled]="disabled"
+        [fieldid]="fieldid"
+        [objid]="objid"
+        [freeform]="freeform"
+      ></wf24-freeform-field-textredactor>
+    </ng-container>
+
+
+    <ng-container *ngSwitchCase="'textarea'">
+      <!--<p>TEXTAREA</p>-->
+      <wf24-freeform-field-textarea
+        [ngClass]="{
+            'withHelper' : fields[fieldid]?.objects[objid]?.body?.helper?.text
+          }"
+        [disabled]="disabled"
+        [fieldid]="fieldid"
+        [objid]="objid"
+        [freeform]="freeform"
+        type="text"
+      ></wf24-freeform-field-textarea>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'select'">
+      <!--<p>SELECT</p>-->
+      <wf24-freeform-field-select
+        [ngClass]="{
+          'withHelper' : fields[fieldid]?.objects[objid]?.body?.helper?.text
+        }"
+        [disabled]="disabled"
+        [fieldid]="fieldid"
+        [objid]="objid"
+        [freeform]="freeform"
+      ></wf24-freeform-field-select>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'button'">
+      <!--<p>BUTTON</p>-->
+      <wf24-freeform-field-button
+        [ngClass]="{
+          'withHelper' : fields[fieldid]?.objects[objid]?.body?.helper?.text
+        }"
+        [disabled]="disabled"
+        [fieldid]="fieldid"
+        [objid]="objid"
+        [freeform]="freeform"
+      ></wf24-freeform-field-button>
+    </ng-container>
+
+
+
+
+    <ng-container *ngSwitchCase="'checkbox'">
+      <wf24-freeform-field-checkbox
+        [ngClass]="{
+          'withHelper' : fields[fieldid]?.objects[objid]?.body?.helper?.text,
+          'hide': fields[fieldid]?.objects[objid]?.body?.status?.hide1
+        }"
+        [disabled]="disabled"
+        [fieldid]="fieldid"
+        [objid]="objid"
+        [freeform]="freeform"
+      ></wf24-freeform-field-checkbox>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'switcher'">
+      <!--<p>SWITCHER</p>-->
+      <wf24-freeform-field-switcher
+        [ngClass]="{
+          'withHelper' : fields[fieldid]?.objects[objid]?.body?.helper?.text
+        }"
+        [disabled]="disabled"
+        [fieldid]="fieldid"
+        [objid]="objid"
+        [freeform]="freeform"
+      ></wf24-freeform-field-switcher>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'radio'">
+      <!--<p>RADIO</p>-->
+      <wf24-freeform-field-radio
+        [ngClass]="{
+          'withHelper' : fields[fieldid]?.objects[objid]?.body?.helper?.text
+        }"
+        [disabled]="disabled"
+        [fieldid]="fieldid"
+        [objid]="objid"
+        [freeform]="freeform"
+      ></wf24-freeform-field-radio>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'image'">
+      <!--<p>FILE UPLOAD</p>-->
+      <wf24-freeform-view-image
+        [ngClass]="{
+          'withHelper' : fields[fieldid]?.objects[objid]?.body?.helper?.text
+        }"
+        [disabled]="disabled"
+        [fieldid]="fieldid"
+        [objid]="objid"
+        [freeform]="freeform"
+      ></wf24-freeform-view-image>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'upload'">
+      <!--<p>FILE UPLOAD</p>-->
+      <wf24-freeform-field-upload
+        [ngClass]="{
+          'withHelper' : fields[fieldid]?.objects[objid]?.body?.helper?.text
+        }"
+        [disabled]="disabled"
+        [fieldid]="fieldid"
+        [objid]="objid"
+        [freeform]="freeform"
+      ></wf24-freeform-field-upload>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'autocomplete'">
+      <!--AUTOCOMPLETE-->
+      <wf24-freeform-field-autocomplete
+        [ngClass]="{
+          'withHelper' : fields[fieldid]?.objects[objid]?.body?.helper?.text
+        }"
+        [disabled]="disabled"
+        [fieldid]="fieldid"
+        [objid]="objid"
+        [freeform]="freeform"
+      ></wf24-freeform-field-autocomplete>
+    </ng-container>
+
+
+
+    <ng-container *ngSwitchDefault></ng-container>
+  </ng-container>
+
+
+</ng-template>
+
+<ng-container *ngTemplateOutlet="fullRowTemplate; context:{ fieldid: fieldid, objid: objid, freeform: freeform  }"></ng-container>
+
+
+

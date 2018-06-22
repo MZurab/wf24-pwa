@@ -1,0 +1,16 @@
+<div class="name_">{{collection.body.name}}</div>
+<ng-container [ngSwitch]="collection.body.list">
+    <ul class="list_ vertical_" *ngSwitchCase="'vertical'">
+      <!--SIMPLE FIELDS (NOT COLLECTION) -->
+      <li *ngFor='let field of collection?.body?.fields; let fieldIndex = index'>
+        <wf24-freeform-field-simple [fieldid]="fieldid" [objid]="objid" [freeform]="freeform"  [disabled]="collection.clientGeneration || disabled || collection.body.status?.disabled"></wf24-freeform-field-simple>
+      </li>
+    </ul>
+
+    <ul class="list_ horisontal_" *ngSwitchCase="'horisontal'">
+      <!--SIMPLE FIELDS (NOT COLLECTION) -->
+      <li *ngFor='let field of collection?.body?.fields; let fieldIndex = index'>
+        <wf24-freeform-field-simple [fieldid]="fieldid" [objid]="objid" [freeform]="freeform"  [disabled]="collection.clientGeneration || disabled || collection.body?.status?.disabled"></wf24-freeform-field-simple>
+      </li>
+    </ul>
+</ng-container>

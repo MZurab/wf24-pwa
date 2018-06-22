@@ -1,0 +1,113 @@
+<!--<form [formGroup]="form">-->
+
+    <!--<input-->
+      <!--*ngIf="mask else fieldWithoutMask"-->
+      <!--[textMask]="{mask: mask}"-->
+
+      <!--freeformObject-->
+      <!--(keypress)="onKeyPress($event)"-->
+      <!--[(ngModel)]="field.body.value"-->
+      <!--[freeformType]="'field'"-->
+      <!--[freeformBaseId]="fieldid"-->
+      <!--[freeformObjId]="objid"-->
+
+      <!--matInput-->
+      <!--formControlName="field"-->
+      <!--placeholder="{{field.body.name}}"-->
+      <!--type="{{type}}"-->
+      <!--[disabled]="disabled || field.body.status.disabled || !field.options.access.write"-->
+
+    <!--&gt;-->
+
+    <!--<ngx-uploadcare-widget-->
+      <!--images-only="true"-->
+      <!--public-key="75cdcf4baad946c1a02c"-->
+      <!--(on-upload-complete)="onUpload($event)"-->
+      <!--(on-change)="onChange($event)"-->
+      <!--(on-progress)="onProgress($event)"-->
+
+
+
+    <!--&gt;-->
+
+
+
+      <!--freeformObject-->
+      <!--(keypress)="onKeyPress($event)"-->
+      <!--[(ngModel)]="field.body.value"-->
+      <!--[freeformType]="'field'"-->
+      <!--[freeformBaseId]="fieldid"-->
+      <!--[freeformObjId]="objid"-->
+
+      <!--formControlName="field"-->
+      <!--[disabled]="disabled || field.body.status.disabled || !field.options.access.write"-->
+
+    <!--</ngx-uploadcare-widget>-->
+
+<!--</form>-->
+
+
+<div class="uploadZoneAndBtn"
+     connectFileDrop
+     (filesDropped)="handleDrop($event)"
+     (filesHovered)="dropzoneState($event)"
+     *ngIf="!field['clientGeneration'] || !disabled || !field.body.status.disabled  || field.options.access.write"
+>
+  <div class="viewedElement"
+       [ngClass]="{
+        'active' : dropzoneStateStatus
+      }"
+    >Загрузка</div>
+  <i class="footerText_">Перетащите файл</i>
+  <input [attr.multiple]='multiple' type="file" class="uploadInputBtn" (change)="onChange(uploadInputBtn.files)" (click)="onClick(uploadInputBtn)" #uploadInputBtn>
+</div>
+
+<div class="uploadedImages row">
+  <div class="uploadedImage col-md-3 col-sm-6" *ngFor="let fielUploadedEl of fieldUploadedList; let idx = index">
+    <div class="img">
+      <img [src]="fieldUploadingLocalListIcons[fielUploadedEl['id']] || getImageIcon(fielUploadedEl) ">
+    </div>
+    <div class="delBtn" (click)="delImage(idx)">x</div>
+  </div>
+
+  <div class="uploadedImage col-md-3 col-sm-6" *ngFor="let fielUploadedEl of fieldUploadingLocalList; let idx = index">
+    <div class="progressBar" id="f-pb-{{fielUploadedEl.fileId}}"></div>
+    <div class="img">
+      <img [src]=" fielUploadedEl['icon'] ">
+    </div>
+    <!--<div class="delBtn" (click)="delImage(idx)">x</div>-->
+  </div>
+
+
+
+  <!--<div class="uploadedImage col-md-3 col-sm-6">-->
+    <!--<div class="img">-->
+      <!--<img src="../../../../../../../../../../../../assets/loader.gif">-->
+    <!--</div>-->
+    <!--<div class="delBtn">x</div>-->
+  <!--</div>-->
+  <!--<div class="uploadedImage col-md-3 col-sm-6">-->
+    <!--<div class="img">-->
+      <!--<img src="../../../../../../../../../../../../assets/loader.gif">-->
+    <!--</div>-->
+    <!--<div class="delBtn">x</div>-->
+  <!--</div>-->
+</div>
+
+<!--<div class="box">-->
+
+  <!--<h2>Drop File</h2>-->
+
+  <!--<div class="dropzone"-->
+       <!--connectFileDrop-->
+       <!--(filesDropped)="handleDrop($event)"-->
+       <!--(filesHovered)="dropzoneState($event)"-->
+  <!--&gt;-->
+
+    <!--<i class="fa fa-cloud-upload fa-2x"></i>-->
+
+  <!--</div>-->
+<!--</div>-->
+
+
+

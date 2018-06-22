@@ -1,0 +1,1197 @@
+{
+  "users": [
+    { "id": "wideformat24" }
+  ],
+  "freeform": [
+    {
+      "id": "formId1",
+
+      "status": 1,
+      "form": {
+        "id"  : "formId1",
+        "name": "Блан заказа 'Интерьерная печать'",
+
+        "initialMap": [
+          {
+            "id"    : "pageId1",
+            "inid"  : "i1",
+            "weight": 3
+          },
+          {
+            "id"    : "pageId2",
+            "inid"  : "i2",
+            "weight": 2
+          }
+        ],
+        "pages"   : {
+          "pageId1" : {
+            "base"   : {
+              "pre": [],
+              "body": {
+                "name": "Первая страница",
+                "groups": [
+                  {
+                    "id"    : "groupId1",
+                    "inid"  : "gid1",
+                    "weight": 1
+                  },
+
+                  {
+                    "id"    : "groupId2",
+                    "inid"  : "gid2",
+                    "weight": 1
+                  }
+                ],
+                "status": {
+                  "required"  : 1,
+                  "on"        : 0,
+                  "disabled"  : false,
+                  "hide"      : false,
+                  "value"     : 0
+                },
+                "helper"  : {
+                  "text"    : "",
+                  "error"   : "",
+                  "success" : ""
+                }
+              },
+              "post": [
+              ]
+            }
+          },
+          "pageId2" : {
+            "base"   : {
+              "pre": [],
+              "body": {
+                "name": "Шаг 2",
+                "groups": [
+                  {
+                    "id"    : "groupId2",
+                    "inid"  : "i4",
+                    "weight": 1
+                  }
+                ],
+                "status": {
+                  "required"  : 1,
+                  "on"        : 0,
+                  "disabled"  : false,
+                  "hide"      : false,
+                  "value"     : 0
+                }
+              },
+              "post": []
+            }
+          },
+          "pageId3" : {
+            "base"   : {
+              "pre": [],
+              "body": {
+                "name": "Шаг 3",
+                "groups": [
+                  {
+                    "id"    : "groupId3",
+                    "inid"  : "i5",
+                    "weight": 1
+                  }
+                ],
+                "status": {
+                  "required"  : 1,
+                  "on"        : 0,
+                  "disabled"  : false,
+                  "hide"      : false,
+                  "value"     : false
+                }
+              },
+              "post": []
+            }
+          }
+        },
+        "groups"   : {
+          "groupId1": {
+            "base"   : {
+              "pre": [],
+              "body": {
+                "name": "Первая группа",
+                "rows": [
+                  {
+                    "id"    : "rowId1",
+                    "inid"  : "rid1",
+                    "weight": 1,
+                    "required": ["id1"]
+                  },
+                  {
+                    "id"    : "rowId2",
+                    "inid"  : "rid2",
+                    "weight": 1,
+                    "required": ["id1"]
+                  },
+                  {
+                    "id"    : "rowId3",
+                    "inid"  : "rid3",
+                    "weight": 1,
+                    "required": ["id2"]
+                  }
+                ],
+                "status": {
+                  "required"  : ["gid1"],
+                  "on"        : 0,
+                  "disabled"  : false,
+                  "hide"      : false,
+                  "value"     : false,
+                  "copiable"  : true
+                },
+                "helper"  : {
+                  "text"    : "",
+                  "error"   : "",
+                  "success" : ""
+                }
+              },
+              "post": []
+            }
+          },
+          "groupId2": {
+            "base"   : {
+              "pre": [],
+              "body": {
+                "name": "ПОСТПЕЧАТНАЯ ОБРАБОТКА",
+                "rows": [
+                    {
+                      "id"    : "rowId4",
+                      "inid"  : "rid3",
+                      "weight": 1
+                    }
+                ],
+                "status": {
+                  "required"  : 1,
+                  "on"        : 0,
+                  "disabled"  : false,
+                  "hide"      : false,
+                  "value"     : false,
+                  "minimize"  : true
+                }
+              },
+              "post": []
+            }
+          },
+          "groupId3": {
+            "base"   : {
+              "pre": [],
+              "body": {
+                "name": "Группа 3",
+                "rows": [
+                  {
+                    "id"    : "rowId3",
+                    "inid"  : "i8",
+                    "weight": 1
+                  }
+                ],
+                "status": {
+                  "required"  : 1,
+                  "on"        : 0,
+                  "disabled"  : false,
+                  "hide"      : false,
+                  "value"     : false
+                }
+              },
+              "post": []
+            }
+          }
+        },
+        "rows"   : {
+          "rowId1": {
+            "base"   : {
+              "pre": [],
+              "body": {
+                "name": "Строка 1",
+                "fields": [
+                  {
+                    "id"    : "fieldIdName",
+                    "inid"  : "fid1",
+                    "weight": 1,
+                    "payload": {
+                      "options": [
+                        {
+                          "key": "plenka",
+                          "val": "Пленка"
+                        },
+                        {
+                          "key": "bumaga",
+                          "val": "Бумага"
+                        }
+                      ]
+                    },
+                    "required"  : ["id1"],
+                    "helper"  : {
+                      "text"    : "Текст помощи для поля",
+                      "error"   : "",
+                      "success" : ""
+                    }
+                  }
+                ],
+                "status": {
+                  "required"  : ["id1"],
+                  "on"        : 0,
+                  "disabled"  : false,
+                  "hide"      : false,
+                  "value"     : false
+                },
+                "helper"  : {
+                  "text"    : "",
+                  "error"   : "",
+                  "success" : ""
+                }
+              },
+              "post": []
+            }
+          },
+          "rowId2": {
+            "base"   : {
+              "pre": [],
+              "body": {
+                "name": "Строка 2",
+                "fields": [
+                  {
+                    "id"    : "fieldIdProizvoditel",
+                    "inid"  : "fid3-0",
+                    "name"  : "Тип0",
+                    "weight": 3,
+                    "helper"  : {
+                      "text"    : "",
+                      "error"   : "",
+                      "success" : ""
+                    },
+                    "payload": {
+                      "options": [
+                        {
+                          "key": "oradjet",
+                          "val": "Ораджет"
+                        },
+
+                        {
+                          "key": "kitay",
+                          "val": "Китай"
+                        }
+                      ]
+                    },
+                    "for"   : [
+                      {
+                        "in_id"     : "fid1",
+                        "model_id"  : "fieldIdName",
+                        "obj_type"  : "field",
+                        "type"      : "isEqual",
+                        "weight"    : 1,
+                        "group"     : "forGroup1",
+                        "mark"      : "",
+                        "value"     : "plenka"
+                      }
+                    ]
+                  },
+                  {
+                    "id"    : "fieldIdProizvoditel",
+                    "inid"  : "fid3-1",
+                    "name"  : "Тип ",
+                    "weight": 3,
+                    "helper"  : {
+                      "text"    : "Текст помощи для поля",
+                      "error"   : "Текст ошибки",
+                      "success" : ""
+                    },
+                    "payload": {
+                      "options": [
+                        {
+                          "key": "posternaya",
+                          "val": "Постерная"
+                        },
+                        {
+                          "key": "fotobumaga",
+                          "val": "Фотобумага"
+
+                        }
+                      ]
+                    },
+                    "for"   : [
+                      {
+                        "in_id"     : "fid1",
+                        "model_id"  : "fieldIdName",
+                        "obj_type"  : "field",
+                        "type"      : "isEqual",
+                        "weight"    : 1,
+                        "group"     : "forGroup1",
+                        "mark"      : "",
+                        "value"     : "bumaga"
+                      }
+                    ]
+                  },
+
+
+                  {
+                    "id"    : "fieldIdColor",
+                    "inid"  : "fid4-0",
+                    "name"  : "Тип1",
+                    "weight": 2,
+                    "helper"  : {
+                      "text"    : "Текст помощи для поля",
+                      "error"   : "Текст ошибки",
+                      "success" : ""
+                    },
+                    "payload": {
+                      "options": [
+                        {
+                          "key": "belaya",
+                          "val": "Белая"
+                        },
+
+                        {
+                          "key": "prozrachnaya",
+                          "val": "Прозрачная"
+                        }
+                      ]
+                    },
+                    "for"   : [
+                      {
+                        "in_id"     : "fid1",
+                        "model_id"  : "fieldIdName",
+                        "obj_type"  : "field",
+                        "type"      : "isEqual",
+                        "weight"    : 1,
+                        "group"     : "forGroup1",
+                        "mark"      : "",
+                        "value"     : "plenka"
+                      }
+                    ]
+                  },
+                  {
+                    "id"    : "fieldIdColor",
+                    "inid"  : "fid4-1",
+                    "name"  : "Тип1",
+                    "weight": 3,
+                    "helper"  : {
+                      "text"    : "Текст помощи для поля",
+                      "error"   : "Текст ошибки",
+                      "success" : ""
+                    },
+                    "payload": {
+                      "options": [
+                        {
+                          "key": 150,
+                          "val": "150"
+                        },
+                        {
+                          "key": 170,
+                          "val": "170"
+                        },
+                        {
+                          "key": 200,
+                          "val": "200"
+                        }
+                      ]
+                    },
+                    "for"   : [
+                      {
+                        "in_id"     : "fid3-1",
+                        "model_id"  : "fieldIdProizvoditel",
+                        "obj_type"  : "field",
+                        "type"      : "isEqual",
+                        "weight"    : 1,
+                        "group"     : "forGroup1",
+                        "mark"      : "",
+                        "value"     : "posternaya"
+                      }
+                    ]
+                  },
+                  {
+                    "id"    : "fieldIdColor",
+                    "inid"  : "fid4-2",
+                    "name"  : "Тип1",
+                    "weight": 3,
+                    "helper"  : {
+                      "text"    : "Текст помощи для поля",
+                      "error"   : "Текст ошибки",
+                      "success" : ""
+                    },
+                    "payload": {
+                      "options": [
+                        {
+                          "key": 200,
+                          "val": "200"
+                        }
+                      ]
+                    },
+                    "for"   : [
+                      {
+                        "in_id"     : "fid3-1",
+                        "model_id"  : "fieldIdProizvoditel",
+                        "obj_type"  : "field",
+                        "type"      : "isEqual",
+                        "weight"    : 1,
+                        "group"     : "fotobumaga",
+                        "mark"      : "",
+                        "value"     : "fotobumaga"
+                      }
+                    ]
+                  },
+
+
+                  {
+                    "id"    : "fieldIdColor",
+                    "inid"  : "fid5-0",
+                    "name"  : "Тип2",
+                    "weight": 2,
+                    "helper"  : {
+                      "text"    : "Текст помощи для поля",
+                      "error"   : "Текст ошибки",
+                      "success" : ""
+                    },
+                    "payload": {
+                      "options": [
+                        {
+                          "key": "matovaya",
+                          "val": "Матовая"
+                        },
+
+                        {
+                          "key": "glyantsevaya",
+                          "val": "Глянцевая"
+                        }
+
+                      ]
+                    },
+                    "for"   : [
+                      {
+                        "in_id"     : "fid1",
+                        "model_id"  : "fieldIdName",
+                        "obj_type"  : "field",
+                        "type"      : "isEqual",
+                        "weight"    : 1,
+                        "group"     : "forGroup1",
+                        "mark"      : "",
+                        "value"     : "plenka"
+                      },
+
+                      {
+                        "in_id"     : "fid3-1",
+                        "model_id"  : "fieldIdProizvoditel",
+                        "obj_type"  : "field",
+                        "type"      : "isEqual",
+                        "weight"    : 1,
+                        "group"     : "forGroup1-2",
+                        "mark"      : "",
+                        "value"     : "fotobumaga"
+                      }
+                    ]
+                  },
+                  {
+                    "id"    : "fieldIdColor",
+                    "inid"  : "fid5-1",
+                    "name"  : "Тип2",
+                    "weight": 3,
+                    "helper"  : {
+                      "text"    : "Текст помощи для поля",
+                      "error"   : "Текст ошибки",
+                      "success" : ""
+                    },
+                    "payload": {
+                      "options": [
+                        {
+                          "key": "matovaya",
+                          "val": "Матовая"
+                        }
+                      ]
+                    },
+                    "for"   : [
+                      {
+                        "in_id"     : "fid3-1",
+                        "model_id"  : "fieldIdProizvoditel",
+                        "obj_type"  : "field",
+                        "type"      : "isEqual",
+                        "weight"    : 1,
+                        "group"     : "forGroup1-2",
+                        "mark"      : "",
+                        "value"     : "posternaya"
+                      }
+                    ]
+                  }
+                ],
+                "status": {
+                  "required"  : 1,
+                  "on"        : 0,
+                  "disabled"  : false,
+                  "hide"      : false,
+                  "value"     : false
+                }
+              },
+              "post": []
+            }
+          },
+          "rowId3": {
+            "base"   : {
+              "pre": [],
+              "body": {
+                "name": "Строка 3",
+                "fields": [
+                  {
+                    "id"    : "fieldIdSize",
+                    "inid"  : "fid5",
+                    "weight": 1,
+                    "resolvedSymbols": ["/[0-9\\x\\х]/g"],
+                    "postfix": "мм",
+                    "required": ["id1"],
+                    "validators": {
+                      "fvalid": {
+                        "name" : "someName1",
+                        "type" : "compare",
+                        "error": {
+                          "*" : "Надо вести в формате 000x000"
+                        },
+                        "payload": {
+                          "value": "/[0-9]+[\\x\\х]{1}[0-9]+/g",
+                          "compare": "isEqualRegex"
+                        }
+                      }
+                    },
+                    "helper": {
+                      "text": "Надо вести в формате 000x000",
+                      "error": {
+                        "*" : "Вы не правильно заполнили"
+                      }
+                    }
+                  },
+                  {
+                    "id"      : "fieldIdAmount",
+                    "inid"    : "fid6",
+                    "weight"  : 1,
+                    "postfix" : "шт",
+                    "required": ["id1"]
+                  }
+                ],
+                "status": {
+                  "required"  : 1,
+                  "on"        : 0,
+                  "disabled"  : false,
+                  "hide"      : false,
+                  "value"     : false
+                }
+              },
+              "post": []
+            }
+          },
+          "rowId4": {
+            "base"   : {
+              "pre": [],
+              "body": {
+                "name": "Строка 4",
+                "fields": [
+                  {
+                    "id"    : "fieldIdLiminaciya",
+                    "inid"  : "fid7",
+                    "weight": 1
+                  },
+                  {
+                    "id"    : "fieldIdSizeToSize",
+                    "inid"  : "fid8",
+                    "weight": 1
+                  }
+                ],
+                "status": {
+                  "required"  : 1,
+                  "on"        : 0,
+                  "disabled"  : false,
+                  "hide"      : false,
+                  "value"     : false
+                }
+              },
+              "post": []
+            }
+          }
+        },
+        "fields": {
+
+
+          "fieldIdName" : {
+            "base"  : {
+              "pre": [],
+              "body": {
+                "name": "Наименование",
+                "type": "select",
+                "actions": {
+                  "onsubmit": {
+                    "name" : "request"
+                  }
+                },
+                "permission": {
+                  "write" : true,
+                  "read"  : true
+                },
+                "rules": {
+                  "for": [],
+                  "relation": []
+                },
+                "payload": {
+                  "options": [
+                    {
+                      "key": "nakleyka",
+                      "val": "Наклейка"
+                    }
+                  ]
+                },
+                "view": {
+                  "width": {
+                    "comp": 4,
+                    "tablet": 4,
+                    "mobile": 4,
+                    "all": 4
+                  }
+                },
+                "status": {
+                  "required"  : 1,
+                  "on"        : 0,
+                  "disabled"  : false,
+                  "hide"      : false,
+                  "value"     : false
+                }
+              },
+              "post": []
+            }
+          },
+
+          "fieldIdMaterial" : {
+            "base"  : {
+              "pre": [],
+              "body": {
+                "name": "Материал",
+                "type": "select",
+                "actions": {
+                  "onsubmit": {
+                    "name" : "request"
+                  }
+                },
+                "permission": {
+                  "write" : true,
+                  "read"  : true
+                },
+                "rules": {
+                  "for": [],
+                  "relation": []
+                },
+                "payload": {
+                  "options": [
+                    {
+                      "key": "plenka",
+                      "val": "Пленка"
+                    }
+                  ]
+                },
+                "view": {
+                  "width": {
+                    "comp": 4,
+                    "tablet": 4,
+                    "mobile": 4,
+                    "all": 4
+                  }
+                },
+                "status": {
+                  "required"  : 1,
+                  "on"        : 0,
+                  "disabled"  : false,
+                  "hide"      : false,
+                  "value"     : false
+                }
+              },
+              "post": []
+            }
+          },
+
+
+
+          "fieldIdProizvoditel" : {
+            "base"  : {
+              "pre": [],
+              "body": {
+                "name": "Производитель",
+                "type": "select",
+                "actions": {
+                  "onsubmit": {
+                    "name" : "request"
+                  }
+                },
+                "permission": {
+                  "write" : true,
+                  "read"  : true
+                },
+                "rules": {
+                  "for": [],
+                  "relation": []
+                },
+                "payload": {
+                  "options": [
+                    {
+                      "key": "oradjet",
+                      "val": "Ораджет"
+                    },
+
+                    {
+                      "key": "",
+                      "val": "Нет"
+                    },
+
+                    {
+                      "key": "",
+                      "val": "Нет2"
+                    },
+
+                    {
+                      "key": "99",
+                      "val": "99 S"
+                    },
+
+                    {
+                      "key": 99,
+                      "val": "99 I"
+                    },
+
+                    {
+                      "key": 100,
+                      "val": "100 I"
+                    },
+
+                    {
+                      "key": "100",
+                      "val": "100 S"
+                    }
+                  ]
+                },
+                "view": {
+                  "width": {
+                    "comp": 4,
+                    "tablet": 4,
+                    "mobile": 4,
+                    "all": 4
+                  }
+                },
+                "status": {
+                  "required"  : 1,
+                  "on"        : 0,
+                  "disabled"  : false,
+                  "hide"      : false,
+                  "value"     : false
+                }
+              },
+              "post": []
+            }
+          },
+
+
+          "fieldIdColor" : {
+            "base"  : {
+              "pre": [],
+              "body": {
+                "name": "Цвет",
+                "type": "select",
+                "actions": {
+                  "onsubmit": {
+                    "name" : "request"
+                  }
+                },
+                "permission": {
+                  "write" : true,
+                  "read"  : true
+                },
+                "rules": {
+                  "for": [],
+                  "relation": []
+                },
+                "payload": {
+                  "options": [
+                    {
+                      "key": "white",
+                      "val": "Белый"
+                    }
+                  ]
+                },
+                "view": {
+                  "width": {
+                    "comp": 4,
+                    "tablet": 4,
+                    "mobile": 4,
+                    "all": 4
+                  }
+                },
+                "status": {
+                  "required"  : 1,
+                  "on"        : 0,
+                  "disabled"  : false,
+                  "hide"      : false,
+                  "value"     : false
+                }
+              },
+              "post": []
+            }
+          },
+
+
+          "fieldIdSize" : {
+            "base"  : {
+              "pre": [
+
+              ],
+              "body": {
+                "name": "Размер",
+                "type": "text",
+                "actions": {
+                  "onsubmit": {
+                    "name" : "request"
+                  }
+                },
+                "permission": {
+                  "write" : true,
+                  "read"  : true
+                },
+                "rules": {
+                  "for": [
+                  ],
+                  "relation": []
+                },
+                "payload": {
+                },
+                "helper"  : {
+                  "text"    : "",
+                  "error"   : "",
+                  "success" : ""
+                },
+                "view": {
+                  "width": {
+                    "comp": 4,
+                    "tablet": 4,
+                    "mobile": 4,
+                    "all": 4
+                  }
+                },
+                "status": {
+                  "required"  : 1,
+                  "on"        : 0,
+                  "disabled"  : false,
+                  "hide"      : false,
+                  "value"     : false
+                }
+              },
+              "post": [
+              ]
+            }
+          },
+
+
+
+          "fieldIdAmount" : {
+            "base"  : {
+              "pre": [
+
+              ],
+              "body": {
+                "name": "Количество",
+                "type": "number",
+                "actions": {
+                  "onsubmit": {
+                    "name" : "request"
+                  }
+                },
+                "permission": {
+                  "write" : true,
+                  "read"  : true
+                },
+                "rules": {
+                  "for": [
+                  ],
+                  "relation": []
+                },
+                "payload": {
+                },
+                "helper"  : {
+                  "text"    : "",
+                  "error"   : "",
+                  "success" : ""
+                },
+                "view": {
+                  "width": {
+                    "comp": 4,
+                    "tablet": 4,
+                    "mobile": 4,
+                    "all": 4
+                  }
+                },
+                "status": {
+                  "required"  : 1,
+                  "on"        : 0,
+                  "disabled"  : false,
+                  "hide"      : false,
+                  "value"     : false
+                }
+              },
+              "post": [
+              ]
+            }
+          },
+
+          "fieldIdLiminaciya" : {
+            "base"  : {
+              "pre": [],
+              "body": {
+                "name": "Ламинация",
+                "type": "select",
+                "actions": {
+                  "onsubmit": {
+                    "name" : "request"
+                  }
+                },
+                "permission": {
+                  "write" : true,
+                  "read"  : true
+                },
+                "rules": {
+                  "for": [],
+                  "relation": []
+                },
+                "payload": {
+                  "options": [
+                    {
+                      "key": "not",
+                      "val": "Нет"
+                    },
+                    {
+                      "key": "yes",
+                      "val": "Да"
+                    }
+                  ]
+                },
+                "view": {
+                  "width": {
+                    "comp": 4,
+                    "tablet": 4,
+                    "mobile": 4,
+                    "all": 4
+                  }
+                },
+                "status": {
+                  "required"  : 1,
+                  "on"        : 0,
+                  "disabled"  : false,
+                  "hide"      : false,
+                  "value"     : false
+                }
+              },
+              "post": []
+            }
+          },
+
+          "fieldIdSizeToSize" : {
+            "base"  : {
+              "pre": [],
+              "body": {
+                "name": "Размер в размер",
+                "type": "select",
+                "actions": {
+                  "onsubmit": {
+                    "name" : "request"
+                  }
+                },
+                "permission": {
+                  "write" : true,
+                  "read"  : true
+                },
+                "rules": {
+                  "for": [],
+                  "relation": []
+                },
+                "payload": {
+                  "options": [
+                    {
+                      "key": "not",
+                      "val": "Нет"
+                    },
+                    {
+                      "key": "yes",
+                      "val": "Да, поштучно"
+                    }
+                  ]
+                },
+                "view": {
+                  "width": {
+                    "comp": 4,
+                    "tablet": 4,
+                    "mobile": 4,
+                    "all": 4
+                  }
+                },
+                "status": {
+                  "required"  : 1,
+                  "on"        : 0,
+                  "disabled"  : false,
+                  "hide"      : false,
+                  "value"     : false
+                }
+              },
+              "post": []
+            }
+          },
+          "fieldId1" : {
+            "base"  : {
+              "pre": [
+
+              ],
+              "body": {
+                "name": "Поле 1",
+                "type": "text",
+                "actions": {
+                  "onsubmit": {
+                    "name" : "request"
+                  }
+                },
+                "permission": {
+                  "write" : true,
+                  "read"  : true
+                },
+                "rules": {
+                  "for": [
+                    {
+                      "in_id"     : "i11",
+                      "model_id"  : "fieldId2",
+                      "obj_type"  : "field",
+                      "type"      : "active",
+                      "weight"    : 1,
+                      "group"     : "myGroupId1",
+                      "mark"      : "",
+                      "value"     : ""
+                    }
+                  ],
+                  "relation": []
+                },
+                "payload": {
+                },
+                "helper"  : {
+                  "text"    : "",
+                  "error"   : "",
+                  "success" : ""
+                },
+                "view": {
+                  "width": {
+                    "comp": 3,
+                    "tablet": 3,
+                    "mobile": 3,
+                    "all": 3
+                  }
+                },
+                "status": {
+                  "required"  : 1,
+                  "on"        : 0,
+                  "disabled"  : false,
+                  "hide"      : false,
+                  "value"     : false
+                }
+              },
+              "post": [
+                {
+                  "id"    : "fieldId3",
+                  "inid"  : "i15",
+                  "weight": 1
+                }
+              ]
+            }
+          },
+          "fieldId2" : {
+            "base"  : {
+              "pre": [],
+              "body": {
+                "name": "Поле СРУ",
+                "type": "checkbox",
+                "actions": {
+                  "onsubmit": {
+                    "name" : "request"
+                  }
+                },
+                "permission": {
+                  "write" : true,
+                  "read"  : true
+                },
+                "rules": {
+                  "for": [],
+                  "relation": []
+                },
+                "payload": {
+                  "options": [
+                    {
+                      "key": "key1",
+                      "val": "Выбор 1"
+                    }
+                  ]
+                },
+                "view": {
+                  "width": {
+                    "comp": 6,
+                    "tablet": 6,
+                    "mobile": 6,
+                    "all": 6
+                  }
+                },
+                "status": {
+                  "required"  : 1,
+                  "on"        : 0,
+                  "disabled"  : false,
+                  "hide"      : false,
+                  "value"     : false
+                }
+              },
+              "post": []
+            }
+          },
+          "fieldId3" : {
+            "base"  : {
+              "pre": [],
+              "body": {
+                "name": "Поле 3",
+                "type": "select",
+                "actions": {
+                  "onsubmit": {
+                    "name" : "request"
+                  }
+                },
+                "permission": {
+                  "write" : true,
+                  "read"  : true
+                },
+                "rules": {
+                  "for": [],
+                  "relation": []
+                },
+                "payload": {
+                  "options": [
+                    {
+                      "key": "key1",
+                      "val": "Выбор 1"
+                    }
+                  ]
+                },
+                "view": {
+                  "width": {
+                    "comp": 6,
+                    "tablet": 6,
+                    "mobile": 6,
+                    "all": 6
+                  }
+                },
+                "status": {
+                  "required": 1,
+                  "on"      : 0,
+                  "disabled": false,
+                  "hide"    : false,
+                  "value"   : false
+                }
+              },
+              "post": []
+            }
+          }
+        }
+
+
+      }
+    }
+  ]
+}

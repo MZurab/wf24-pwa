@@ -1,0 +1,6 @@
+<form [formGroup]="form">
+  <div class="example-margin">{{field.body.name}}</div>
+  <ng-container *ngFor="let option of field.body.payload.options">
+    <mat-checkbox (change)="change(field, option.key)" (change)="updateValue(checkbox)" #checkbox name="{{option.key}}"  [disabled]="field['clientGeneration'] || disabled || field.body.status.disabled || !field.options.access.write">{{option.val}}</mat-checkbox>
+  </ng-container>
+</form>

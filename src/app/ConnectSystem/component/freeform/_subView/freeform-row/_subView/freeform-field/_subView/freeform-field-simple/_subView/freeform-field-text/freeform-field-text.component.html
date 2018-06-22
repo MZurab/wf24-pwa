@@ -1,0 +1,65 @@
+<form [formGroup]="form">
+  <mat-form-field class="example-full-width">
+
+    <ng-container ngSwitch="typeof mask">
+      <ng-container *ngSwitchCase="'object'">
+        <input
+          [textMask]="{mask: mask}"
+
+          freeformObject
+          (keypress)="onKeyPress($event)"
+          [(ngModel)]="field.body.value"
+          [freeformType]="'field'"
+          [freeformBaseId]="fieldid"
+          [freeformObjId]="objid"
+
+          matInput
+          formControlName="field"
+          placeholder="{{field.body.name}}"
+          type="{{type}}"
+          [readonly]="field['clientGeneration'] || disabled || field.body.status.disabled || !field.options.access.write"
+
+        >
+      </ng-container>
+
+      <ng-container *ngSwitchDefault>
+        <input
+          freeformObject
+          (keypress)="onKeyPress($event)"
+          [(ngModel)]="field.body.value"
+          [freeformType]="'field'"
+          [freeformBaseId]="fieldid"
+          [freeformObjId]="objid"
+
+          matInput
+          formControlName="field"
+          placeholder="{{field.body.name}}"
+          type="{{type}}"
+          [readonly]="field['clientGeneration'] || disabled || field.body.status.disabled"
+        >
+      </ng-container>
+    </ng-container>
+
+    <span *ngIf="field.body.view.prefix?.value && field.body.view.prefix?.type === 'string'" matPrefix>{{field.body.view.prefix.value}}</span>
+    <span *ngIf="field.body.view.postfix?.value && field.body.view.postfix?.type === 'string'" matSuffix>{{field.body.view.postfix.value}}</span>
+
+    <!--If this field is required and have error message -> show this message -->
+    <mat-error *ngIf="
+               field.body?.status?.untouched === true &&
+               field.body?.status?.value !== true &&
+               field.body?.status?.required.length > 0 &&
+               (field.body?.helper?.error || field.body.gen.errorOfValidator)
+             "
+    >
+      <!--ADD DICTIONARY-->
+      {{(field.body.gen.errorOfValidator || field.body?.helper?.error) | connectDictionary}}
+    </mat-error>
+
+
+    <!--If this field has hint -> show this hint -->
+    <mat-hint align="start" *ngIf="field.body?.view?.hint?.start"><strong>{{field.body.view.hint.start}}</strong> </mat-hint>
+    <mat-hint align="end" *ngIf="field.body?.view?.hint?.end"><strong>{{field.body.view.hint.end}}</strong> </mat-hint>
+
+
+  </mat-form-field>
+</form>

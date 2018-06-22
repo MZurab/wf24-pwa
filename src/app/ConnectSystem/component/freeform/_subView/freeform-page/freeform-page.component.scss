@@ -1,0 +1,41 @@
+.body_ {
+  width: 80%;
+  margin: auto;
+}
+.alert {
+  opacity: 1;
+  font-size: 1rem;
+
+  &.alert-info {
+    background-color: rgba(255, 255, 255, 0.6588235294117647);
+    border-color: transparent;
+    color: rgba(128, 176, 212, 0.6);
+  }
+
+  .leftBlock_ {
+
+  }
+  .body_ {
+
+  }
+}
+
+.buttons {
+  .nextButton, .submitButton {
+    float: right;
+  }
+  .previousButton {
+    float: left;
+  }
+}
+
+
+
+:host ::ng-deep {
+ .hideStepper .mat-horizontal-stepper-header-container {
+   display: none;
+ }
+}
+
+
+

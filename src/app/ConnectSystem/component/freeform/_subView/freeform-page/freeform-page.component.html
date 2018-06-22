@@ -1,0 +1,180 @@
+<!--<div class="parentContainer" #parentContainer></div>-->
+
+<!--<div #body *ngIf="bodyViewFlag" #contaner1>-->
+<!--<mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper step" #contaner1>-->
+  <!---->
+<!--</mat-horizontal-stepper>-->
+<!--</div>-->
+
+
+<!--<mat-step #contaner1 class="pageId{{pageId}}" [label]="name" [stepControl]="secondFormGroup">-->
+  <!--&lt;!&ndash;[stepControl]="secondFormGroup"&ndash;&gt;-->
+  <!--<form >-->
+    <!--&lt;!&ndash;[formGroup]="secondFormGroup"&ndash;&gt;-->
+    <!--<ng-template matStepLabel>{{name}}</ng-template>-->
+
+    <!--<mat-form-field class="example-full-width">-->
+      <!--<input matInput placeholder="Поле {{step.id}}" type="number">-->
+    <!--</mat-form-field>-->
+
+
+    <!--<div>-->
+      <!--<button mat-button matStepperPrevious>Назад</button>-->
+      <!--<button mat-button matStepperNext>Дальше</button>-->
+    <!--</div>-->
+  <!--</form>-->
+<!--</mat-step>-->
+
+
+<div
+  [ngClass]="
+    {
+      hideStepper: hideStepper
+    }
+  "
+>
+  <mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper">
+    <ng-template	#fullPageTemplate let-freeform='freeform' let-pageid='pageid' let-objid='objid'  let-pages='freeform.pages' let-pageNumber='pageNumber' let-pagesCount='pagesCount'>
+      <!--{{log('pageid',pageid)}}-->
+      <!--from base-->
+      <!--<ng-container *ngFor="let preid of pages[pageid].base.pre">-->
+      <!--<ng-container *ngTemplateOutlet="fullPageTemplate; context:{ freeform: freeform, pageid: preid }"></ng-container>-->
+      <!--</ng-container>-->
+
+      <!--from object-->
+      <ng-container *ngFor="let pre of pages[pageid]?.objects[objid]?.pre">
+        <ng-container  *ngTemplateOutlet="fullPageTemplate; context:{ pageid: pre.baseid, objid: pre.objid, freeform: freeform}"></ng-container>
+      </ng-container>
+
+      <ng-container>
+        <mat-step  [stepControl]="{invalid: !pages[pageid]?.objects[objid]?.body.status.value }" >
+          <ng-template matStepLabel>{{pages[pageid]?.objects[objid]?.body.name}}</ng-template>
+          <div
+            class='body_'
+
+            freeformObject
+            [freeformType]="'page'"
+            [freeformObjId]="objid"
+            [freeformBaseId]="pageid"
+          >
+            <wf24-freeform-group [pageid]="pageid" [objid]="objid" [freeform]="freeform" [disabled]="pages[pageid]?.objects[objid]?.body.clientGeneration || pages[pageid]?.objects[objid]?.body?.status?.disabled || disabled"></wf24-freeform-group>
+
+            <!--helpers-->
+            <ng-container *ngIf="pages[pageid]?.objects[objid]?.body?.helper">
+              <div class="helper_ alert alert-info fade in alert-dismissible row"
+                   *ngIf="
+                  pages[pageid]?.objects[objid]?.body?.status?.focus === true &&
+                  pages[pageid]?.objects[objid]?.body?.helper?.text
+            ">
+                <div class="leftBlock_ col-1">
+                  <div class="icon_">
+                    <i class="fas fa-question-circle"></i>
+                  </div>
+                </div>
+                <div class="body_ col-11">{{pages[pageid]?.objects[objid]?.body?.helper?.text}}</div>
+              </div>
+
+              <div class="success_ alert alert-success fade in alert-dismissible row"
+                   *ngIf="
+                 pages[pageid]?.objects[objid]?.body?.helper?.success &&
+                 pages[pageid]?.objects[objid]?.body?.status?.value === true
+               ">
+
+                <div class="leftBlock_ ol-1">
+                  <div class="icon_">
+                    <i class="fas fa-check-circle"></i>
+                  </div>
+                </div>
+                <div class="body_ ol-11">{{pages[pageid]?.objects[objid]?.body?.helper?.success}}</div>
+              </div>
+
+              <div class="error_ alert alert-danger fade in alert-dismissible row"
+                   *ngIf="
+                 pages[pageid]?.objects[objid]?.body?.helper?.error &&
+                 pages[pageid]?.objects[objid]?.body?.status?.untouched === true &&
+                 pages[pageid]?.objects[objid]?.body?.status?.value !== true &&
+                 pages[pageid]?.objects[objid]?.body?.status?.required.length > 0
+               ">
+                <div class="leftBlock_ col-1">
+                  <div class="icon_">
+                    <i class="fas fa-exclamation-circle"></i>
+                  </div>
+                </div>
+                <div class="body_ col-11">{{pages[pageid]?.objects[objid]?.body?.helper?.error}}</div>
+              </div>
+            </ng-container>
+            <!--helpers-->
+
+            <!--<p>pagesCount - {{pagesCount}} | pageNumber - {{pageNumber}}</p>-->
+            <!--buttons (here we add submit buttons ) -->
+            <!--buttons-->
+
+            <div class="row buttons">
+              <div class="col-xl-6">
+                <!-- show previous button if this page not first && exist previous button -->
+                <button
+                  *ngIf="
+                  pageNumber > 1 &&
+                  pages[pageid]?.objects[objid]?.body?.options?.buttons?.previousPage?.active
+                "
+                  (click)="previousPage(pages[pageid].objects[objid].body.options.buttons.previousPage)"
+                  mat-button
+                  class="previousButton"
+                >
+                  {{pages[pageid].objects[objid].body.options.buttons.previousPage.value | connectDictionary }}
+                </button>
+              </div>
+              <div class="col-xl-6">
+                <!-- show next buttons if exist this btn && this page is not last or show submitButton -->
+                <button
+                  *ngIf="
+                  pageNumber < pagesCount &&
+                  pages[pageid]?.objects[objid]?.body?.options?.buttons?.nextPage?.active &&
+                  pages[pageid].objects[objid].body?.status?.value
+                "
+                  (click)=" nextPage(pages[pageid].objects[objid].body.options.buttons.nextPage) "
+                  mat-button
+                  class="nextButton"
+                >
+                  {{pages[pageid].objects[objid].body.options.buttons.nextPage.value | connectDictionary }}
+                </button>
+
+                <!-- show submit button if not exist next button -->
+                <button
+                  *ngIf="
+                    pages[pageid]?.objects[objid]?.body?.options?.buttons?.submit?.active &&
+                    freeform?.status?.value
+                  "
+                  (click)=" submitPage(pages[pageid].objects[objid].body.options.buttons.submit) "
+                  mat-button
+                  class="submitButton"
+                >
+                  {{pages[pageid].objects[objid].body.options.buttons.submit.value | connectDictionary }}
+                </button>
+              </div>
+            </div>
+
+
+
+          </div>
+        </mat-step>
+      </ng-container>
+
+      <!--from object-->
+      <ng-container *ngFor="let post of pages[pageid]?.objects[objid]?.post">
+        <!--{{console.log('post',post)}}-->
+        <ng-container  *ngTemplateOutlet="fullPageTemplate; context:{ pageid: post.baseid, objid: post.objid, freeform: freeform}"></ng-container>
+      </ng-container>
+
+      <!--from base-->
+      <!--<ng-container *ngFor="let postid of pages[pageid].base.post">-->
+      <!--<ng-container *ngTemplateOutlet="fullPageTemplate; context:{ freeform: freeform, pageid: postid}"></ng-container>-->
+      <!--</ng-container>-->
+    </ng-template>
+
+
+    <ng-container *ngFor='let page of freeform.map; let pageIndex = index'>
+      <ng-container  *ngTemplateOutlet="fullPageTemplate; context:{ pageid: page.baseid, objid: page.objid, freeform: freeform, pageNumber: pageIndex + 1, pagesCount: freeform.map.length }"></ng-container>
+    </ng-container>
+  </mat-horizontal-stepper>
+</div>

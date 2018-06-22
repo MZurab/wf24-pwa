@@ -1,0 +1,48 @@
+<div class="body_">
+  <div class="innerContainer">
+    <div class="loader" *ngIf="showingLoader">
+      <mat-spinner class="loaderBlock"></mat-spinner>
+    </div>
+
+    <form class="form" [formGroup]="form"  *ngIf="!showingLoader && !showSmsBlock">
+      <mat-form-field class="example-full-width">
+        <input formControlName="phone" [(ngModel)]="phone" matInput placeholder="Телефон" type="text" required>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input formControlName="pswd" [(ngModel)]="pswd" matInput type="password" placeholder="Пароль" required>
+
+
+        <div class="error_" *ngIf="errorWhenSignIn">{{ errorWhenSignIn | connectDictionary}}</div>
+
+      </mat-form-field>
+
+      <div class="signInButtonBlock">
+        <button [disabled]="form.invalid" (click)="signIn()"  mat-button class="signIn">Войти</button>
+
+
+      </div>
+
+      <div class="footerText">
+        <span>Вы еще не зарегистрированны? <a href="#" (click)="false">Зарегистрироваться</a></span>
+      </div>
+    </form>
+
+    <form class="formSmsCode " [formGroup]="formSmsCode" *ngIf="!showingLoader && showSmsBlock">
+      <mat-form-field class="example-full-width">
+        <input formControlName="smsCode" [(ngModel)]="smsCode" matInput placeholder="Код из смс" type="text" required>
+
+        <div class="error_" *ngIf="errorWhenSendSmsCode">{{ errorWhenSendSmsCode | connectDictionary}}</div>
+      </mat-form-field>
+
+      <div class="signInButtonBlock">
+        <button [disabled]="formSmsCode.invalid" (click)="sendSmsCode()"  mat-button class="signIn">Войти</button>
+      </div>
+
+      <div class="footerText">
+        <span>Не пришел код? <a href="#" (click)="false">Отправить заново</a></span>
+      </div>
+    </form>
+  </div>
+</div>
+

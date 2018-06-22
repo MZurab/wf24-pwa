@@ -1,0 +1,68 @@
+<ng-template
+  #fullRowTemplate
+  let-freeform='freeform'
+  let-fields="freeform.fields"
+  let-fieldid="fieldid"
+  let-objid="objid"
+  let-field="field"
+
+  let-rowobjid="rowobjid"
+  let-rowid="rowid"
+>
+  <!--from object-->
+  <ng-container *ngFor="let pre of field.pre">
+    <ng-container *ngTemplateOutlet="fullRowTemplate; context:{ fieldid: pre.baseid, objid: pre.objid, freeform: freeform  }"></ng-container>
+  </ng-container>
+
+  <ng-container>
+    <div
+      class="formField_ col-{{field.body?.view?.width?.all}} col-md-{{field.body?.view?.width?.mobile || field.body?.view?.width?.all}} col-lg-{{field.body?.view?.width?.tablet || field.body?.view?.width?.all}} col-xl-{{field.body?.view?.width?.comp || field.body?.view?.width?.all}}"
+      [ngClass]="
+        {
+          'hide'    : field.body?.status?.hide
+        }
+      "
+    >
+
+      <!--<div class="helper" *ngIf="field.body?.helper?.text" [class]="'cols323'">-->
+      <!--<i class="fas fa-question" [matTooltip]="field.body?.helper?.text" [title]="field.body?.helper?.text"></i>-->
+      <!--</div>-->
+
+      <div
+        class="block"
+        [ngSwitch]="field.body?.type"
+      >
+          <ng-container *ngSwitchCase="'collection'">
+            <!--COLLECTION-->
+
+
+            <wf24-freeform-field-collection [fieldid]="fieldid" [objid]="objid" [freeform]="freeform"  [disabled]="disabled"></wf24-freeform-field-collection>
+
+          </ng-container>
+
+          <ng-container *ngSwitchDefault>
+            <!--SIMPLE FIELDS (NOT COLLECTION-->
+            <wf24-freeform-field-simple [fieldid]="fieldid" [objid]="objid" [freeform]="freeform"  [disabled]="disabled"></wf24-freeform-field-simple>
+
+          </ng-container>
+      </div>
+
+
+
+    </div>
+  </ng-container>
+
+
+  <!--from object-->
+  <ng-container *ngFor="let post of field.post">
+    <ng-container *ngTemplateOutlet="fullRowTemplate; context:{ fieldid: post.baseid, objid: post.objid, freeform: freeform  }"></ng-container>
+  </ng-container>
+
+</ng-template>
+
+<div class="row" *ngIf="freeform.fields">
+  <ng-container *ngFor='let field of freeform.rows[rowid]?.objects[objid]?.body?.fields; let fieldIndex = index'>
+    <ng-container *ngTemplateOutlet="fullRowTemplate; context:{ field: freeform.fields[field.baseid].objects[field.objid], fieldid: field.baseid, objid: field.objid, freeform: freeform,  rowid: rowid, rowobjid: objid }"></ng-container>
+  </ng-container>
+</div>
+

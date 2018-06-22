@@ -1,0 +1,22 @@
+.loader {
+  display: table;
+  margin: 5rem auto;
+
+  .counter_ {
+    text-align: center;
+    color: rgba(0, 0, 0, 0.30);
+    padding: 0.25rem;
+    font-size: 1.25rem;
+  }
+}
+.content {
+  background: white;
+  border: 0.2rem solid rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.freeform {
+  position: relative;
+  min-height: 20rem;
+}

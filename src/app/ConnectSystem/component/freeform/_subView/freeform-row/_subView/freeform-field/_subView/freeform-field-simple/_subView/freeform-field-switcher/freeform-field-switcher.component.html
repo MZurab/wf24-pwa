@@ -1,0 +1,5 @@
+<form [formGroup]="form">
+  <mat-slide-toggle formControlName="field" class="example-margin" name="someName"  [disabled]="field['clientGeneration'] ||disabled || field.body.status.disabled  || !field.options.access.write" >
+    {{field.body.name}}
+  </mat-slide-toggle>
+</form>

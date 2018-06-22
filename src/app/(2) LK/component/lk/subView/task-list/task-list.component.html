@@ -1,0 +1,38 @@
+<div class="tableContainer mat-elevation-z8">
+
+  <table class="tableForOrder">
+    <tr class="header_">
+      <td class="num1_" width="40">#</td>
+      <td>Заказчик</td>
+      <td>Тип бланка</td>
+      <td>Менеджер</td>
+      <td>Статус</td>
+      <td>Создан</td>
+      <td>Сдача</td>
+      <td>Приоритет</td>
+      <td>Цех</td>
+    </tr>
+    <tr class="body_" *ngFor="let row of ELEMENT_DATA; let idx = index" [ngStyle]="{fontWeight: getStatusTextByNumber(row.status).boldLevel != 0 ? 700 : 300}">
+      <td class="num1_">
+        {{row.position}}
+        <i class="fas fa-angle-down btn_ actionShowChild" *ngIf="someObject[idx+1] === true"></i>
+        <i class="fas fa-angle-up btn_ actionHideChild"   *ngIf="someObject[idx+1] === false"></i>
+      </td>
+      <td>{{row.name}}</td>
+      <td>{{row.project}}</td>
+      <td>{{row.manager}}</td>
+      <td class="status_">
+            <span class="text_" [ngStyle]="{color: getStatusTextByNumber(row.status).color, background: getStatusTextByNumber(row.status).background, textDecoration: getStatusTextByNumber(row.status).textDecoration}">
+              {{getStatusTextByNumber(row.status).text}}
+            </span>
+      </td>
+      <td>{{row.dateCreated | date:"dd/MM/yy"}}</td>
+      <td class="dateFinished_">
+        <span class="text_" [ngStyle]="{background: getDateFinishedByTimestamp(row.dateFinished,row.status).background, color: getDateFinishedByTimestamp(row.dateFinished,row.status).color}">{{row.dateFinished| date:"dd/MM/yy"}}</span>
+      </td>
+      <td>{{row.priority}}</td>
+      <td>{{row.workshop}}</td>
+    </tr>
+
+  </table>
+</div>

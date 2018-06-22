@@ -1,0 +1,9 @@
+
+<form [formGroup]="form">
+  <div class="example-margin">{{field.body.name}}</div>
+  <mat-radio-group formControlName="field"   [disabled]="field['clientGeneration'] || disabled || field.body.status.disabled  || !field.options.access.write" >
+    <ng-container *ngFor="let option of field.body.payload.options">
+      <mat-radio-button value="{{option.key}}">{{option.val}}</mat-radio-button>
+    </ng-container>
+  </mat-radio-group>
+</form>

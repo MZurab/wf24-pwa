@@ -1,0 +1,36 @@
+<!-- freeform loader -->
+
+<div class="loader" *ngIf="(loaderViewFlag || this.freeform?.downloaded !== true) && !this.freeform?.error">
+  <!--loaderViewFlag && this.freeform?.downladed === false-->
+  <mat-spinner></mat-spinner>
+  <div class="counter_">{{this.freeform?.invokeCountertimerIdForDownloadControl}}</div>
+</div>
+
+<!--<div class="freeform">-->
+  <!--<div class="onlyReadAccess" *ngIf="(loaderViewFlag || this.freeform?.downloaded !== true) && !this.freeform?.error">-->
+    <!--<img class="loader" src="../../../../assets/loader.svg">-->
+  <!--</div>-->
+
+  <!--SHOW ERROR MESSAGE IF EXIST-->
+  <div *ngIf="this.freeform?.error && !loaderViewFlag" class="alert alert-danger" role="alert">
+    <strong>Ошибка!</strong> {{this.freeform.error | connectDictionary}}
+  </div>
+
+
+  <!--SHOW SUCCESS MESSAGE IF EXIST-->
+  <div *ngIf="this.freeform?.success && !loaderViewFlag" class="alert alert-success" role="alert">
+    <strong>{{this.freeform.success | connectDictionary}}</strong>
+  </div>
+
+  <!-- freeform block -->
+  <div class="content" #body *ngIf="bodyViewFlag && this.freeform.downloaded === true && !this.freeform.destroyed">
+    <wf24-freeform-page [freeform]="freeform" *ngIf="freeform"></wf24-freeform-page>
+  </div>
+
+<!--</div>-->
+
+
+
+
+
+

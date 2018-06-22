@@ -1,0 +1,24 @@
+<form [formGroup]="form">
+  <mat-form-field>
+    <input
+      [matDatepicker]="picker"
+
+
+
+      (keypress)="onKeyPress($event)"
+      [(ngModel)]="date"
+      (change)="onChange()"
+
+      (dateChange)="dateChange($event)"
+      (dateInput)="dateInput($event)"
+
+
+      matInput
+      formControlName="field"
+      placeholder="{{field.body.name}}"
+      [readonly]="true"
+    >
+    <mat-datepicker-toggle matSuffix [for]="picker"  [disabled]="field['clientGeneration'] || disabled || field.body.status.disabled || !field.options.access.write"></mat-datepicker-toggle>
+    <mat-datepicker #picker  [disabled]="field.body.status.disabled"></mat-datepicker>
+  </mat-form-field>
+</form>

@@ -1,0 +1,462 @@
+//$tablet: "(min-width: 768px) and (max-width: 1023px)";
+
+// media query
+$desktopAndTablet         : "(min-width: 768px)";
+$mobile                   : "(max-width: 767px)";
+
+// colors variables
+$c_headerBackground       : #db4c3f;
+$c_headerBorderBottom     : #ca2100;
+$c_headerText             : #fff;
+$c_rightBlockBackground   : $c_headerText;
+
+// constraints variables
+$constr_mobile_height     : 36px;
+$constr_desktop_height    : 43px;
+$constr_desktop_maxWidth  : 950px;
+
+//mixins
+@mixin setPlaceholderColor($color) {
+  &::-webkit-input-placeholder { color : $color }
+  &::-moz-placeholder          { color : $color }/* Firefox 19+ */
+  &:-moz-placeholder           { color : $color }/* Firefox 18- */
+  &:-ms-input-placeholder      { color : $color }
+}
+// FOR USE - .someClassForExample { @include setPlaceholderColor(#fff); }
+
+.ulOff {
+  list-style: none;
+  padding: 0px;
+}
+
+.body {
+  padding-top: $constr_desktop_height - 1;
+}
+
+.container-fluid {
+
+  height: 100vh;
+  margin: 0px;
+  padding: 0px;
+}
+
+.container {
+  max-width: $constr_desktop_maxWidth !important;
+  margin-top: 0px;
+
+
+  .leftBlock {
+    padding-top: 1rem;
+
+    ul.categories {
+      @extend .ulOff;
+      height: 2rem;
+      cursor: pointer;
+
+      display: table;
+      width: 100%;
+
+      li {
+        margin: 0.1rem 0rem;
+        padding: 0.3rem 0rem;
+
+
+        &:hover {
+          background: white;
+
+        }
+
+        .icon {
+          position: absolute;
+          width: 1.5rem;
+          height: 1.5rem;
+          line-height: 1.5rem;
+        }
+
+        span {
+          padding-left: 2rem;
+        }
+      }
+
+    }
+    ul.projectsMenus {
+      @extend .ulOff;
+      padding: 0 0 0 0.7rem;
+
+      li {
+        height: 1.25rem;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 0.9rem;
+        margin: 0.5rem 0rem;
+        cursor: pointer;
+        position: relative;
+        width: 100%;
+
+        &.subLevel1 {
+          padding-left: 0.75rem;
+        }
+        &.subLevel2 {
+          padding-left: 1.5rem;
+        }
+        &.subLevel3 {
+          padding-left: 3rem;
+        }
+
+        .hoverElements {
+          position: absolute;
+          display: none;
+          line-height: inherit;
+          vertical-align: middle;
+          color: gray;
+          height: inherit;
+          top: 0px;
+        }
+
+        .hoverMovingIcon {
+          @extend .hoverElements;
+          left: 0rem;
+          cursor: move;
+        }
+        .menuIcon {
+          @extend .hoverElements;
+          right: 0px;
+        }
+
+        &:hover {
+          padding: 0 0 0 1.7rem;
+
+          .hoverMovingIcon, .menuIcon {
+            display: block;
+          }
+        }
+
+        .text {
+          padding-left: 0.75rem;
+        }
+
+        .count {
+          font-size: 0.7rem;
+        }
+          .countAll {
+            @extend .count;
+            color: gray;
+          }
+          .countLate {
+            @extend .count;
+            color: rgba(255, 0, 0, 0.5);
+          }
+
+        .cicleIcon {
+          @extend .count;
+          line-height: 1.25rem;
+          vertical-align: middle;
+        }
+      }
+    }
+
+
+  }
+  .rightBlock {
+    background-color: $c_rightBlockBackground;
+    border-right: 1px solid #f1f1f1;
+    padding-top: 1rem;
+
+    .header_ {
+      position: relative;
+      height: 2rem;
+
+      .title_ {
+        font-size: 1.5rem;
+        color: #fb866c;
+      }
+      .rightSide_ {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        height: 2rem;
+
+        .item {
+          display: inline-block;
+          line-height: 2rem;
+          vertical-align: middle;
+          height: 2rem;
+          color: #ccc;
+          cursor: pointer;
+
+          &:hover {
+            color: #575757;
+          }
+        }
+        .options {
+
+        }
+      }
+    }
+
+    .body_ {
+      ul.taskItems {
+        @extend .ulOff;
+        padding: 0 0.5rem;
+
+        li.taskItem {
+          height: 3rem;
+          line-height: 3rem;
+          vertical-align: middle;
+          page-break-inside: avoid;
+          font-size: 14px;
+          //border-bottom: 1px solid transparent;
+          position: relative;
+
+          .completedTask {
+            text-decoration: line-through;
+            color: #afafaf;
+          }
+
+          &.subLevel1 {
+            margin-left: 1.5rem;
+          }
+          &.subLevel2 {
+            margin-left: 3rem;
+          }
+          &.subLevel3 {
+            margin-left: 4.5rem;
+          }
+
+          &:hover {
+            background-color: rgba(250, 250, 250, 0.47);
+          }
+
+          .bottomPositionForLine {
+            position: absolute;
+            height: 1px;
+            left: 0px;
+            bottom: 0px;
+            z-index: 0;
+
+          }
+          .horisontalLine_ {
+            @extend .bottomPositionForLine;
+            width: 100%;
+            bottom: 5px;
+            display: block;
+          }
+          .progress_ {
+            height: 5px;
+            border-top: 2px solid transparent;
+            z-index: 1;
+            //background: rgba(148, 239, 97, 0.5);//rgba(220, 75, 62, 0.25);
+
+            .startTime_, .endTime_ , .text_ {
+              display: none;
+              line-height: 100%;
+              font-size: 0.6rem;
+              text-align: center;
+            }
+
+            .startTime_, .endTime_ {
+              min-height: 0.25rem;
+              position: absolute;
+              top:0px;
+              min-width: 0.25rem;
+              display: block;
+
+              & > .text_ {
+                display: none;
+              }
+              &:hover {
+
+                & > .text_ {
+                  display: block;
+                }
+              }
+
+            }
+            //.startTime_ .text_, .endTime_ .text_{
+            //  display: none ;
+            //}
+            .endTime_ {
+              right: 0px;
+            }
+
+
+            .text_ {
+              width: 100%;
+              font-weight: bold;
+              color: #91b37d;
+            }
+
+
+            .success_ {
+              position: relative;
+              cursor: pointer;
+              height: inherit;
+              border-top-width: 2px;
+              border-top-style: solid;
+              border-color: rgba(148, 239, 97, 0.5);
+              float: left;
+
+              &:hover {
+                border-left-width: 3px;
+                border-left-style: solid;
+                border-right-width: 3px;
+                border-right-style: solid;
+
+                & > .text_ {
+                  display: block;
+                }
+
+              }
+            }
+            .error_ {
+              position: relative;
+              cursor: pointer;
+              height: inherit;
+              border-top-width: 2px;
+              border-top-style: solid;
+              border-color: rgba(239, 36, 0, 0.5);
+              float: right;
+
+              &:hover {
+                border-left-width: 3px;
+                border-left-style: solid;
+                border-right-width: 3px;
+                border-right-style: solid;
+
+                & > .text_ {
+                  display: block;
+                }
+              }
+            }
+
+
+          }
+          .before_ {
+            display: inline-table;
+            color:  rgba(128, 128, 128, 0.6);
+          }
+          .title_ {
+            padding-left: 0.75rem;
+          }
+          .after_ {
+            position: absolute;
+            right: 0px;
+            top: 0px;
+
+            .planTime {
+              font-size: 0.7rem;
+              padding-bottom: 1px;
+              padding: 0.25rem;
+
+            }
+            .late0to1day {
+              border-bottom: 1px solid red;
+            }
+            .cicleIcon {
+              font-size: 0.7rem;
+            }
+            .projectName {
+              font-size: 0.65rem;
+              color: #9b9b9b;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+  // header options for all devices
+  .header {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: 100;
+    border-bottom: solid 1px $c_headerBorderBottom;
+    background-color: $c_headerBackground;
+
+    .container {
+      height: 100%;
+      padding: 0px;
+
+      .leftSide {
+        // menu for mobile devices
+        .menuButton {
+          width: $constr_mobile_height;
+          font-size: 21px;
+          color: white;
+          height: 100%;
+          padding-left: 0.25rem;
+          line-height: $constr_mobile_height;
+          text-align: center;
+          cursor: pointer;
+        }
+        .closeHeaderMenuButton {
+          display: none;
+        }
+
+        // logo text for desktop devises
+        .logoText {
+          color: white;
+          font-size: 1.5rem;
+          line-height: 100%;
+          font-family: cursive;
+          padding-top: 0.5rem;
+          padding-left: 0.25rem;
+          cursor: pointer;
+        }
+      }
+
+      .rightSide {
+        .searchBlock {
+          background: transparent;
+          color:white;
+          height: 1.5rem;
+          margin-top: 0.15rem;
+          font-size: 0.9rem;
+          font-weight: 100;
+
+          padding: 0.4rem;
+          padding-bottom: 1.5rem;
+          border-radius: 0.25rem;
+
+
+          input {
+            @include setPlaceholderColor(#fff);
+            border: 0px;
+            background: transparent;
+            color:inherit;
+          }
+          input:focus {
+            outline: none;
+          }
+        }
+      }
+
+      .header_ {
+
+      }
+    }
+  }
+  // header height for mobile devices
+  @media only screen and  #{$mobile} {
+    .header {
+      height: $constr_mobile_height;
+    }
+  }
+  // header height for desktop devices
+  @media only screen and  #{$desktopAndTablet} {
+    .header {
+      height: $constr_desktop_height;
+    }
+  }
+
+
+
+:host ::ng-deep .mat-tab-header-pagination {
+  display: none !important;
+}
+:host ::ng-deep .mat-tab-label {
+  min-width: 30px;
+  padding: 0 12px;
+  font-size: 0.8rem;
+}

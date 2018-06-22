@@ -1,0 +1,46 @@
+
+
+.content {
+  background: white;
+  border: 0.2rem solid rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  border-radius: 1rem;
+
+  .body_ {
+    width: 80%;
+    margin: auto;
+
+    .formGroup_ {
+      padding: 1rem;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      margin: 1rem 0rem;
+
+      .row_ {
+
+        .formField_ {
+
+        }
+
+      }
+    }
+
+  }
+
+  .buttonBlock {
+    height: 3rem;
+    margin: auto;
+    margin-top: 5rem;
+    width: 80%;
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+    padding-top: 0.25rem;
+
+    .nextBtn {
+      float:right;
+    }
+  }
+}
+
+:host ::ng-deep .mat-horizontal-stepper-header-container {
+  width: 80%;
+  margin: auto;
+}

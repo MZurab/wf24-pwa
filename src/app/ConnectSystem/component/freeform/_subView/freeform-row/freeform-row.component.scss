@@ -1,0 +1,40 @@
+.minimize {
+  font-size: 1rem;
+  text-align: center;
+}
+.alert {
+  opacity: 1;
+  font-size: 0.7rem;
+
+  &.alert-info {
+    background-color: rgba(255, 255, 255, 0.6588235294117647);
+    border-color: transparent;
+    color: rgba(128, 176, 212, 0.6);
+  }
+
+  .leftBlock_ {
+
+  }
+  .body_ {
+
+  }
+
+
+}
+
+.row_ {
+  padding: 0.25rem;
+  padding-top: 0.4rem;
+  border: 1px solid transparent;
+  position: relative;
+
+  // if we have error row
+  &.error_ {
+    //border: 1px solid rgba(255, 0, 0, 0.5);
+  }
+
+  // if we have error row
+  &.success_ {
+    border: 1px solid rgba(3, 179, 0, 0.05);
+  }
+}

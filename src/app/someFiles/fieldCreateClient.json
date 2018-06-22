@@ -1,0 +1,451 @@
+{
+  "users": [
+    { "id": "wideformat24" }
+  ],
+  "freeform": [
+    {
+      "id": "formId1",
+
+      "status": 1,
+      "form": {
+        "id"  : "formId2",
+        "name": "Создание клиента",
+
+        "initialMap": [
+          {
+            "id"    : "pageId1",
+            "inid"  : "i1",
+            "weight": 3
+          }
+        ],
+        "pages"   : {
+          "pageId1" : {
+            "base"   : {
+              "pre": [],
+              "body": {
+                "name": "Первая страница",
+                "groups": [
+                  {
+                    "id"    : "groupId1",
+                    "inid"  : "gid1",
+                    "weight": 1
+                  },
+
+                  {
+                    "id"    : "groupId2",
+                    "inid"  : "gid2",
+                    "weight": 1
+                  }
+                ],
+                "status": {
+                  "required"  : 1,
+                  "on"        : 0,
+                  "disabled"  : false,
+                  "hide"      : false,
+                  "value"     : 0
+                },
+                "helper"  : {
+                  "text"    : "",
+                  "error"   : "",
+                  "success" : ""
+                }
+              },
+              "post": [
+              ]
+            }
+          }
+        },
+        "groups"   : {
+          "groupId1": {
+            "base"   : {
+              "pre": [],
+              "body": {
+                "name": "Первая группа",
+                "rows": [
+                  {
+                    "id"    : "rowId1",
+                    "inid"  : "rid1",
+                    "weight": 1,
+                    "required": ["id1"]
+                  },
+                  {
+                    "id"    : "rowId2",
+                    "inid"  : "rid2",
+                    "weight": 1,
+                    "required": ["id1"]
+                  },
+                  {
+                    "id"    : "rowId3",
+                    "inid"  : "rid3",
+                    "weight": 1,
+                    "required": ["id2"]
+                  }
+                ],
+                "status": {
+                  "required"  : ["gid1"],
+                  "on"        : 0,
+                  "disabled"  : false,
+                  "hide"      : false,
+                  "value"     : false,
+                  "copiable"  : true
+                },
+                "helper"  : {
+                  "text"    : "",
+                  "error"   : "",
+                  "success" : ""
+                }
+              },
+              "post": []
+            }
+          },
+          "groupId2": {
+            "base"   : {
+              "pre": [],
+              "body": {
+                "name": "ПОСТПЕЧАТНАЯ ОБРАБОТКА",
+                "rows": [
+                  {
+                    "id"    : "rowId4",
+                    "inid"  : "rid3",
+                    "weight": 1
+                  }
+                ],
+                "status": {
+                  "required"  : 1,
+                  "on"        : 0,
+                  "disabled"  : false,
+                  "hide"      : false,
+                  "value"     : false,
+                  "minimize"  : true
+                }
+              },
+              "post": []
+            }
+          }
+        },
+        "rows"   : {
+          "group1row1": {
+            "base"   : {
+              "pre": [],
+              "body": {
+                "name": "Строка 1",
+                "fields": [
+                  {
+                    "id"    : "fieldIdText",
+                    "inid"  : "group1row1field1",
+                    "name"  : "Инн",
+                    "weight": 1,
+                    "payload": {
+                      "options": [
+                        {
+                          "key": "plenka",
+                          "val": "Пленка"
+                        }
+                      ]
+                    },
+                    "required"  : ["id1"]
+                  },
+                  {
+                    "id"    : "fieldIdText",
+                    "inid"  : "group1row1field2",
+                    "name"  : "Кпп",
+                    "weight": 1,
+                    "payload": {
+                    },
+                    "required"  : ["id1"]
+                  }
+                ],
+                "status": {
+                  "required"  : 1,
+                  "on"        : 0,
+                  "disabled"  : false,
+                  "hide"      : false,
+                  "value"     : false
+                }
+              },
+              "post": []
+            }
+          },
+          "group1row2": {
+            "base"   : {
+              "pre": [],
+              "body": {
+                "name": "Строка 2",
+                "fields": [
+                  {
+                    "id"    : "fieldIdText",
+                    "inid"  : "group1row2field1",
+                    "name"  : "Наименование",
+                    "weight": 1,
+                    "payload": {
+                    },
+                    "required"  : ["id1"]
+                  }
+                ],
+                "status": {
+                  "required"  : 1,
+                  "on"        : 0,
+                  "disabled"  : false,
+                  "hide"      : false,
+                  "value"     : false
+                }
+              },
+              "post": []
+            }
+          },
+          "group1row3": {
+            "base"   : {
+              "pre": [],
+              "body": {
+                "name": "Строка 3",
+                "fields": [
+                  {
+                    "id"    : "fieldIdText",
+                    "inid"  : "group1row3field1",
+                    "name"  : "Адрес",
+                    "weight": 1,
+                    "payload": {
+                    },
+                    "required"  : ["id1"]
+                  }
+                ],
+                "status": {
+                  "required"  : 1,
+                  "on"        : 0,
+                  "disabled"  : false,
+                  "hide"      : false,
+                  "value"     : false
+                }
+              },
+              "post": []
+            }
+          },
+          "group2row1": {
+            "base"   : {
+              "pre": [],
+              "body": {
+                "name": "Адрес офиса",
+                "fields": [
+                  {
+                    "id"    : "fieldIdText",
+                    "inid"  : "group2row1field1",
+                    "name"  : "Страна",
+                    "weight": 1,
+                    "payload": {
+                    },
+                    "required"  : ["id1"]
+                  },
+                  {
+                    "id"    : "fieldIdText",
+                    "inid"  : "group2row1field1",
+                    "name"  : "Город",
+                    "weight": 1,
+                    "payload": {
+                    },
+                    "required"  : ["id1"]
+                  }
+                ],
+                "status": {
+                  "required"  : 1,
+                  "on"        : 0,
+                  "disabled"  : false,
+                  "hide"      : false,
+                  "value"     : false
+                }
+              },
+              "post": []
+            }
+          },
+          "group2row2": {
+            "base"   : {
+              "pre": [],
+              "body": {
+                "name": "Адрес офиса",
+                "fields": [
+                  {
+                    "id"    : "fieldIdText",
+                    "inid"  : "group2row2field1",
+                    "name"  : "Улица",
+                    "weight": 1,
+                    "payload": {
+                    },
+                    "view": {
+                      "width": {
+                        "comp": 6,
+                        "tablet": 6,
+                        "mobile": 6,
+                        "all": 6
+                      }
+                    },
+                    "required"  : ["id1"]
+                  },
+                  {
+                    "id"    : "fieldIdText",
+                    "inid"  : "group2row2field2",
+                    "name"  : "Дом",
+                    "weight": 1,
+                    "payload": {
+                    },
+                    "view": {
+                      "width": {
+                        "comp": 2,
+                        "tablet": 2,
+                        "mobile": 2,
+                        "all": 2
+                      }
+                    },
+                    "required"  : ["id1"]
+                  },
+                  {
+                    "id"    : "fieldIdText",
+                    "inid"  : "group2row2field3",
+                    "name"  : "Корп.",
+                    "weight": 1,
+                    "payload": {
+                    },
+                    "view": {
+                      "width": {
+                        "comp": 2,
+                        "tablet": 2,
+                        "mobile": 2,
+                        "all": 2
+                      }
+                    },
+                    "required"  : ["id1"]
+                  },
+                  {
+                    "id"    : "fieldIdText",
+                    "inid"  : "group2row2field4",
+                    "name"  : "Офис",
+                    "weight": 1,
+                    "payload": {
+                    },
+                    "view": {
+                      "width": {
+                        "comp": 2,
+                        "tablet": 2,
+                        "mobile": 2,
+                        "all": 2
+                      }
+                    },
+                    "required"  : ["id1"]
+                  }
+                ],
+                "status": {
+                  "required"  : 1,
+                  "on"        : 0,
+                  "disabled"  : false,
+                  "hide"      : false,
+                  "value"     : false
+                }
+              },
+              "post": []
+            }
+          }
+        },
+        "fields": {
+
+          "fieldIdSelect" : {
+            "base"  : {
+              "pre": [],
+              "body": {
+                "type": "select",
+                "actions": {
+                  "onsubmit": {
+                    "name" : "request"
+                  }
+                },
+                "permission": {
+                  "write" : true,
+                  "read"  : true
+                },
+                "rules": {
+                  "for": [],
+                  "relation": []
+                },
+                "payload": {
+                  "options": [
+                    {
+                      "key": "nakleyka",
+                      "val": "Наклейка"
+                    }
+                  ]
+                },
+                "view": {
+                  "width": {
+                    "comp": 4,
+                    "tablet": 4,
+                    "mobile": 4,
+                    "all": 4
+                  }
+                },
+                "status": {
+                  "required"  : 1,
+                  "on"        : 0,
+                  "disabled"  : false,
+                  "hide"      : false,
+                  "value"     : false
+                }
+              },
+              "post": []
+            }
+          },
+
+
+
+          "fieldIdText" : {
+            "base"  : {
+              "pre": [
+
+              ],
+              "body": {
+                "name": "Размер",
+                "type": "text",
+                "actions": {
+                  "onsubmit": {
+                    "name" : "request"
+                  }
+                },
+                "permission": {
+                  "write" : true,
+                  "read"  : true
+                },
+                "rules": {
+                  "for": [
+                  ],
+                  "relation": []
+                },
+                "payload": {
+                },
+                "helper"  : {
+                  "text"    : "",
+                  "error"   : "",
+                  "success" : ""
+                },
+                "view": {
+                  "width": {
+                    "comp": 4,
+                    "tablet": 4,
+                    "mobile": 4,
+                    "all": 4
+                  }
+                },
+                "status": {
+                  "required"  : 1,
+                  "on"        : 0,
+                  "disabled"  : false,
+                  "hide"      : false,
+                  "value"     : false
+                }
+              },
+              "post": [
+              ]
+            }
+          }
+        }
+
+
+      }
+    }
+  ]
+}

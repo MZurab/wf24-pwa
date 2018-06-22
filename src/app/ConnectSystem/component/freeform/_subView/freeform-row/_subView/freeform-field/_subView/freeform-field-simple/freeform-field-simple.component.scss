@@ -1,0 +1,57 @@
+.helper_ {
+  display: block;
+  width: 10%;
+  color: rgba(128, 128, 128, 0.2);
+  float: left;
+  cursor: pointer;
+  margin-top: -0.2rem;
+
+  &:hover {
+
+    color: rgba(128, 128, 128, 0.8);
+  }
+}
+
+.withHelper {
+  width: 90%;
+  float: right;
+}
+
+.formField_ {
+  position: relative;
+
+  .helper {
+    font-size: 1.5rem;
+    left: 0rem;
+    top: 0rem;
+    float: left;
+    margin-right: 0.5rem;
+  }
+
+
+
+  .block {
+}
+
+  .error_, .success_ {
+    opacity: 1;
+  }
+}
+
+.alert {
+  opacity: 1;
+  font-size: 0.65rem;
+
+  &.alert-info {
+    background-color: rgba(255, 255, 255, 0.6588235294117647);
+    border-color: transparent;
+    color: rgba(128, 176, 212, 0.6);
+  }
+
+  .leftBlock_ {
+
+  }
+  .body_ {
+
+  }
+}

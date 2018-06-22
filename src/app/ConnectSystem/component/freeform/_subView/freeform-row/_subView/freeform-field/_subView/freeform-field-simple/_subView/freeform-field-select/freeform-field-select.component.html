@@ -1,0 +1,31 @@
+<form [formGroup]="form">
+  <mat-form-field>
+
+    <!--(change)="change(field, thisField.value)"  [ngModel]="field.body.value"-->
+    <mat-select
+      freeformObject
+
+      [freeformType]="'field'"
+      [freeformBaseId]="fieldid"
+      [freeformObjId]="objid"
+      [(ngModel)]="field.body.value"
+
+      formControlName="field"
+      placeholder="{{field.body.name}}"
+      [disabled]="field['clientGeneration'] || disabled || field.body.status.disabled  || !field.options.access.write"
+    >
+      <mat-option *ngFor="let option of field.body.payload.options" [value]="option.key">{{option.val }}</mat-option>
+    </mat-select>
+
+    <mat-error *ngIf="
+               field.body?.status?.untouched === true &&
+               field.body?.status?.value !== true &&
+               field.body?.status?.required.length > 0 &&
+               (field.body?.helper?.error || field.body.gen.errorOfValidator)
+             "
+    >
+      <!--ADD DICTIONARY-->
+      {{(field.body.gen.errorOfValidator || field.body?.helper?.error) | connectDictionary}}
+    </mat-error>
+  </mat-form-field>
+</form>

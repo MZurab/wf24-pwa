@@ -1,0 +1,95 @@
+<ng-template	#fullRowTemplate let-freeform='freeform' let-rows="freeform.rows" let-rowid="rowid" let-objid="objid" >
+
+  <!--from object-->
+  <ng-container *ngFor="let pre of rows[rowid]?.objects[objid]?.pre">
+    <ng-container *ngTemplateOutlet="fullRowTemplate; context:{ rowid: pre.baseid, objid: pre.objid, freeform: freeform  }"></ng-container>
+  </ng-container>
+
+  <ng-container>
+    <div class="row_ "
+         [ngClass]="
+          {
+            'hide':     rows[rowid]?.objects[objid]?.body?.status?.hide,
+            'error_':   rows[rowid]?.objects[objid]?.body?.status?.untouched === true &&
+                        rows[rowid]?.objects[objid]?.body?.status?.value !== true &&
+                        rows[rowid]?.objects[objid]?.body?.status?.required.length > 0,
+            'success_': rows[rowid]?.objects[objid]?.body?.status?.value === true
+          }
+        "
+
+         freeformObject
+         [freeformType]="'row'"
+         [freeformObjId]="objid"
+         [freeformBaseId]="rowid"
+    >
+
+      <div class="onlyReadAccess" *ngIf="!disabled && (rows[rowid].objects[objid].clientGeneration || rows[rowid].objects[objid]?.body.status?.disabled)"></div>
+      <!--<p>Наименование - {{rows[rowid].objects[objid].body?.name}}</p>
+      <p>rowid - {{rowid}}</p>
+      <p>objid - {{objid}}</p>
+      <pre>rows[rowid]?.objects[objid]?.body?.status - {{rows[rowid]?.objects[objid]?.body?.status | json}}</pre>
+      <p>rows[rowid]?.objects[objid]?.id - {{rows[rowid]?.objects[objid]?.id}}</p>-->
+
+
+      <wf24-freeform-field [rowid]="rowid" [objid]="objid" [freeform]="freeform"  [disabled]="rows[rowid].objects[objid].clientGeneration || disabled || rows[rowid].objects[objid]?.body.status?.disabled"></wf24-freeform-field>
+
+      <!--helpers-->
+      <ng-container *ngIf="rows[rowid]?.objects[objid]?.body?.helper">
+        <div class="helper_ alert alert-info fade in alert-dismissible row"
+             *ngIf="
+                rows[rowid]?.objects[objid]?.body?.status?.focus === true &&
+                rows[rowid]?.objects[objid]?.body?.helper?.text
+        ">
+          <div class="leftBlock_ col-1">
+            <div class="icon_">
+              <i class="fas fa-question-circle"></i>
+            </div>
+          </div>
+          <div class="body_ col-11">{{rows[rowid]?.objects[objid]?.body?.helper?.text}}</div>
+        </div>
+
+        <div class="success_ alert alert-success fade in alert-dismissible row"
+             *ngIf="
+               rows[rowid]?.objects[objid]?.body?.helper?.success &&
+               rows[rowid]?.objects[objid]?.body?.status?.value === true
+             ">
+
+          <div class="leftBlock_ ol-1">
+            <div class="icon_">
+              <i class="fas fa-check-circle"></i>
+            </div>
+          </div>
+          <div class="body_ ol-11">{{rows[rowid]?.objects[objid]?.body?.helper?.success}}</div>
+        </div>
+
+        <div class="error_ alert alert-danger fade in alert-dismissible row"
+             *ngIf="
+               rows[rowid]?.objects[objid]?.body?.helper?.error &&
+               rows[rowid]?.objects[objid]?.body?.status?.untouched === true &&
+               rows[rowid]?.objects[objid]?.body?.status?.value !== true &&
+               rows[rowid]?.objects[objid]?.body?.status?.required.length > 0
+             ">
+          <div class="leftBlock_ col-1">
+            <div class="icon_">
+              <i class="fas fa-exclamation-circle"></i>
+            </div>
+          </div>
+          <div class="body_ col-11">{{rows[rowid]?.objects[objid]?.body?.helper?.error}}</div>
+        </div>
+      </ng-container>
+
+    </div>
+  </ng-container>
+
+
+  <!--from object-->
+  <ng-container *ngFor="let post of rows[rowid]?.objects[objid]?.post">
+    <ng-container *ngTemplateOutlet="fullRowTemplate; context:{ rowid: post.baseid, objid: post.objid, freeform: freeform  }"></ng-container>
+  </ng-container>
+</ng-template>
+
+<ng-container *ngFor='let row of freeform.groups[groupid]?.objects[objid]?.body?.rows; let pageIndex = index'>
+  <ng-container *ngTemplateOutlet="fullRowTemplate; context:{ rowid: row.baseid, objid: row.objid, freeform: freeform  }"></ng-container>
+</ng-container>
+
+

@@ -1,0 +1,137 @@
+<ng-template	#fullGroupTemplate let-freeform='freeform' let-groups="freeform.groups" let-groupid="groupid" let-objid="objid">
+
+
+
+
+
+    <!--from object-->
+    <ng-container *ngFor="let pre of groups[groupid].objects[objid]?.pre">
+      <ng-container *ngTemplateOutlet="fullGroupTemplate; context:{ groupid: pre.baseid, objid: pre.objid, freeform: freeform }"></ng-container>
+    </ng-container>
+
+    <ng-container>
+      <div class="formGroup_ "
+           [ngClass]="
+           {
+            'hide'  :   groups[groupid].objects[objid]?.body?.status?.hide,
+            'error_':   groups[groupid].objects[objid]?.body?.status?.untouched === true &&
+                        groups[groupid].objects[objid]?.body?.status?.value !== true &&
+                        groups[groupid].objects[objid]?.body?.status?.required.length > 0,
+            'success_': groups[groupid].objects[objid]?.body?.status?.value === true
+           }
+            "
+           freeformObject
+           [freeformType]="'group'"
+           [freeformObjId]="objid"
+           [freeformBaseId]="groupid"
+      >
+
+        <div class="onlyReadAccess" *ngIf="groups[groupid].objects[objid]?.clientGeneration || groups[groupid].objects[objid]?.body?.status?.disabled || disabled">
+          <img class="loader" src="../../../../../../assets/loader.svg">
+        </div>
+
+        <div class="minimize"
+             (click)="minimizeOff(groups[groupid].objects[objid])"
+             [ngClass]="
+               {
+                  hide: !groups[groupid].objects[objid]?.body?.status?.minimize
+               }
+              "
+        >
+          <i class="fas fa-plus icon_"></i>
+          <span class="name_">{{groups[groupid].objects[objid]?.body?.name}}</span>
+        </div>
+
+        <div class="body_"
+             [ngClass]="
+         {
+            hide: groups[groupid].objects[objid]?.body?.status?.minimize
+         }
+        "
+        >
+          <!--header-->
+            <div class="header_">
+              <div class="rightButtons_">
+                <div class="btn copyButton" *ngIf="groups[groupid].objects[objid]?.body?.status?.copiable" title="Скопировать" (click)="copyToPost (groups[groupid].objects[objid], groupid)">
+                  <i class="far fa-copy" ></i>
+                </div>
+
+                <div class="btn maximaze" *ngIf="!groups[groupid].objects[objid]?.body?.status?.minimize" title="Свернуть" (click)="minimizeOn(groups[groupid].objects[objid])">
+                  <i class="fas fa-minus"></i>
+                </div>
+
+              </div>
+            </div>
+
+          <wf24-freeform-row [groupid]="groupid" [objid]="objid" [freeform]="freeform" [disabled]="groups[groupid].objects[objid]?.clientGeneration || groups[groupid].objects[objid]?.body?.status?.disabled || disabled"></wf24-freeform-row>
+
+          <!--helpers-->
+          <ng-container *ngIf="groups[groupid].objects[objid]?.body?.helper">
+            <div class="helper_ alert alert-info fade in alert-dismissible row"
+                 *ngIf="
+                  groups[groupid].objects[objid]?.body?.status?.focus === true &&
+                  groups[groupid].objects[objid]?.body?.helper?.text
+            ">
+              <div class="leftBlock_ col-1">
+                <div class="icon_">
+                  <i class="fas fa-question-circle"></i>
+                </div>
+              </div>
+              <div class="body_ col-11">{{groups[groupid].objects[objid]?.body?.helper?.text}}</div>
+            </div>
+
+            <div class="success_ alert alert-success fade in alert-dismissible row"
+                 *ngIf="
+                 groups[groupid].objects[objid]?.body?.helper?.success &&
+                 groups[groupid].objects[objid]?.body?.status?.value === true
+               ">
+
+              <div class="leftBlock_ ol-1">
+                <div class="icon_">
+                  <i class="fas fa-check-circle"></i>
+                </div>
+              </div>
+              <div class="body_ ol-11">{{groups[groupid].objects[objid]?.body?.helper?.success}}</div>
+            </div>
+
+            <div class="error_ alert alert-danger fade in alert-dismissible row"
+                 *ngIf="
+                 groups[groupid].objects[objid]?.body?.helper?.error &&
+                 groups[groupid].objects[objid]?.body?.status?.untouched === true &&
+                 groups[groupid].objects[objid]?.body?.status?.value !== true &&
+                 groups[groupid].objects[objid]?.body?.status?.required.length > 0
+               ">
+              <div class="leftBlock_ col-1">
+                <div class="icon_">
+                  <i class="fas fa-exclamation-circle"></i>
+                </div>
+              </div>
+              <div class="body_ col-11">{{groups[groupid].objects[objid]?.body?.helper?.error}}</div>
+            </div>
+          </ng-container>
+          <!--helpers-->
+        </div>
+
+
+      </div>
+    </ng-container>
+
+    <!--from object-->
+    <ng-container *ngFor="let post of groups[groupid].objects[objid]?.post">
+      <ng-container *ngTemplateOutlet="fullGroupTemplate; context:{ groupid: post.baseid, objid: post.objid, freeform: freeform }"></ng-container>
+    </ng-container>
+
+
+</ng-template>
+
+
+<!--<div>-->
+  <!--<p>pageid - {{pageid}}</p>-->
+  <!--<p>objid - {{objid}}</p>-->
+  <!--<p>freeform.pages[pageid] - {{freeform.pages[pageid] | json}}</p>-->
+  <!--<p>freeform.pages[pageid]?.objects[objid] - {{freeform.pages[pageid]?.objects[objid] | json}}</p>-->
+  <!--<p>freeform.groups[groupid].objects[objid]?.body?.groups - {{freeform.groups[groupid].objects[objid]?.body?.groups | json}}</p>-->
+<!--</div>-->
+<ng-container *ngFor='let group of freeform.pages[pageid].objects[objid]?.body?.groups; let pageIndex = index'>
+  <ng-container *ngTemplateOutlet="fullGroupTemplate; context:{ groupid: group.baseid, objid: group.objid, freeform: freeform }"></ng-container>
+</ng-container>

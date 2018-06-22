@@ -1,0 +1,84 @@
+<div class="container">
+
+  <div class="header ">
+    <div class="centerMessage">
+      <div class="userHello">Привет! {{userName}}.</div>
+      <span class="userDate">Сейчас - {{timeNow | connectDate : 'MMMM Do YYYY, hh:mm:ss'}}</span>
+    </div>
+    <div class="menu_ ">
+      <ul class="menuList_ ">
+        <li class="menuItem_">
+          <a href="#" [routerLink]="['notFound']">Новый заказ</a>
+        </li>
+        <li class="menuItem_ ">
+          <a href="#"  [routerLink]="['']">Таблица заказов</a>
+          <span class="counter">12</span>
+        </li>
+        <li class="menuItem_ ">
+          <a href="#"  [routerLink]="['works']"  [queryParams]="{ table: 'article' }" >Статьи</a>
+          <!--<span class="counter">12</span>-->
+        </li>
+        <li class="menuItem_ ">
+          <a href="#"  [queryParams]="{ table: 'work' }"  [routerLink]="['works']">Работы</a>
+          <!--<span class="counter">12</span>-->
+        </li>
+        <!--<li class="menuItem_ ">-->
+          <!--<a href="#" [routerLink]="['notFound']">Задачи</a>-->
+          <!--<span class="counter">1</span>-->
+        <!--</li>-->
+        <!--<li class="menuItem_ ">-->
+          <!--<a href="#" [routerLink]="['notFound']">Важное</a>-->
+          <!--<span class="counter">3</span>-->
+        <!--</li>-->
+        <!--<li class="menuItem_ ">-->
+          <!--<a href="#" [routerLink]="['notFound']">База знаний</a>-->
+        <!--</li>-->
+        <!--<li class="menuItem_ ">-->
+          <!--<a href="#" [routerLink]="['notFound']">Чат</a>-->
+        <!--</li>-->
+        <!--<li class="menuItem_ ">-->
+          <!--<a href="#" [routerLink]="['taskform']">Монтажи</a>-->
+        <!--</li>-->
+        <li class="menuItem_ ">
+          <a href="#" [routerLink]="['taskform']" [queryParams]="{ modelid: 'createPage1' }">Добавить статью</a>
+        </li>
+        <li class="menuItem_ ">
+          <a href="#" [routerLink]="['taskform']" [queryParams]="{ modelid: 'work-article' }">Добавить работу</a>
+        </li>
+        <li class="menuItem_ ">
+          <a href="#" [routerLink]="['taskform']" [queryParams]="{ modelid: 'addWork' }">Добавить заказ</a>
+        </li>
+        <li class="menuItem_ ">
+          <a href="#" [routerLink]="['taskform']">Форма</a>
+        </li>
+        <li class="menuItem_ " (click)="signOut()">
+          <a href="#">Выйти</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!--<nav class="navbar navbar-expand-lg navbar-light bg-light">-->
+    <!--<a href="#" class="navbar-brand">Главная</a>-->
+    <!--<button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+      <!--<span class="navbar-toggler-icon"></span>-->
+    <!--</button>-->
+
+    <!--<div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+      <!--<ul class="navbar-nav mr-auto">-->
+        <!--<li class="nav-item active"><a href="#" class="nav-link">Меню -1</a></li>-->
+        <!--<li class="nav-item"><a href="#" class="nav-link">Меню -2</a></li>-->
+        <!--<li class="nav-item"><a href="#" class="nav-link">Меню -3</a></li>-->
+        <!--<li class="nav-item"><a href="#" class="nav-link">Меню -4</a></li>-->
+        <!--<li class="nav-item"><a href="#" class="nav-link">Меню -5</a></li>-->
+      <!--</ul>-->
+    <!--</div>-->
+  <!--</nav>-->
+
+  <div class="chiefView">
+    <router-outlet></router-outlet>
+  </div>
+
+</div>
+
+
